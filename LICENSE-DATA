@@ -1,0 +1,29 @@
+Data license
+============
+
+The MIT license in LICENSE covers the code in this repository only. It does
+NOT cover the source data.
+
+File covered:
+  data/raw/guo2025_figshare_29897750.zip
+  (MD5 6a49330fadc5e773059c52a84f6af67c; identical to the file published on
+  figshare; redistributed without modification)
+
+Derived tables in data/processed/ and results/ are computed from that file
+and are shared under the same license, CC BY 4.0.
+
+License: Creative Commons Attribution 4.0 International (CC BY 4.0)
+         https://creativecommons.org/licenses/by/4.0/
+         Verified on the figshare record on 2026-09-27.
+
+Required attribution (dataset, citation as provided by figshare):
+  Guo, Ziyin (2025). OTU Abundance Data: Oral Microbiome in Hypertensive Patients with/without Periodontitis. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29897750.v1
+
+Associated publication:
+  Guo Z., Yu X., Liu Y., Hu Q., Zhang Z., Zhang C., Li J. (2026). "A comparative analysis of oral microbial communities in hypertensive patients with and without chronic periodontitis." BMC Oral Health 26(1):836. doi:10.1186/s12903-026-08144-6
+
+Changes: the zip file itself has not been modified. Files in data/processed/
+and results/ are derived from it (parsed, filtered, aggregated and analysed)
+by the code in this repository.
+
+The data authors do not endorse this project or its conclusions.

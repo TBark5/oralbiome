@@ -29,14 +29,20 @@ causal or clinical findings.
 - [Dashboard](#dashboard)
 - [Limitations](#limitations)
 - [Repository layout](#repository-layout)
+- [Licenses](#licenses)
+- [References](#references)
 
 ## Data
 
-Guo et al., "A comparative analysis of oral microbial communities in
-hypertensive patients with and without chronic periodontitis", *BMC Oral
-Health* 26:836 (2026). Processed ASV table deposited on figshare
-([10.6084/m9.figshare.29897750](https://doi.org/10.6084/m9.figshare.29897750.v1),
-CC BY 4.0). Unstimulated saliva, 16S rRNA V3-V4, Illumina NovaSeq,
+Source study (the "source study" throughout this repository):
+
+> Guo Z., Yu X., Liu Y., Hu Q., Zhang Z., Zhang C., Li J. (2026). "A comparative analysis of oral microbial communities in hypertensive patients with and without chronic periodontitis." BMC Oral Health 26(1):836. doi:10.1186/s12903-026-08144-6
+
+Processed feature table deposited on figshare (CC BY 4.0):
+
+> Guo, Ziyin (2025). OTU Abundance Data: Oral Microbiome in Hypertensive Patients with/without Periodontitis. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29897750.v1
+
+Unstimulated saliva, 16S rRNA V3-V4, Illumina NovaSeq,
 periodontitis diagnosed with the 2018 AAP/EFP classification. Details, the
 exact URL and the access date are in [DATA_SOURCE.md](DATA_SOURCE.md).
 
@@ -63,7 +69,7 @@ pip install -r requirements.txt
 pip install -e .
 
 python run_all.py          # regenerates every table in results/ and figure in figures/ (~3 min)
-python -m pytest           # 36 tests, ~10 s
+python -m pytest           # 48 tests, ~15 s
 streamlit run app.py       # interactive dashboard
 ```
 
@@ -82,7 +88,7 @@ rank-biserial effect size (positive = higher in periodontitis).
 
 | # | Prediction | Result | Verdict |
 |---|---|---|---|
-| P1 | Alpha diversity differs | Shannon p = 0.796, r = +0.06 [95% CI -0.35, +0.45]; no metric passes BH across the 4 metrics (lowest: Pielou's evenness p = 0.037, q = 0.147) | **Not supported** |
+| P1 | Alpha diversity differs | Shannon p = 0.796, r = +0.06 [95% CI -0.35, +0.45]; no metric passes BH across the 6 metrics (lowest: Pielou's evenness p = 0.037, q = 0.200) | **Not supported** |
 | P2 | Groups separate in beta-diversity space | Bray-Curtis PERMANOVA R² = 0.082, F = 2.86, p = 0.015; PERMDISP p = 0.065; Jaccard p = 0.072 | **Supported, with a caveat** (dispersion borderline) |
 | P3 | Red-complex species enriched in periodontitis | *P. gingivalis* q = 0.005, *T. forsythia* q = 0.012, *T. denticola* q = 0.004 (all higher in P) | **Supported** (pre-declared test) |
 | P4 | Composition predicts disease above chance | L1-LR AUC 0.92 [0.81, 1.00], RF 0.81 [0.65, 0.94]; permutation p = 0.0099 for both | **Supported, with a caveat** (depends heavily on one taxon) |
@@ -94,15 +100,36 @@ The full evaluation, including what each result does and does not mean, is in
 
 ### Alpha diversity (genus level, rarefied to 44,786 reads)
 
-| Metric | Median H | Median P | p | q (4 metrics) | r [95% CI] |
+| Metric | Median H | Median P | p | q (6 metrics) | r [95% CI] |
 |---|---|---|---|---|---|
 | Shannon | 2.884 | 3.086 | 0.796 | 0.796 | +0.06 [-0.35, +0.45] |
-| Gini-Simpson | 0.899 | 0.915 | 0.234 | 0.312 | +0.24 [-0.16, +0.62] |
-| Observed genera | 179.5 | 140.0 | 0.133 | 0.267 | -0.31 [-0.67, +0.11] |
-| Pielou's evenness | 0.561 | 0.640 | 0.037 | 0.147 | +0.42 [+0.03, +0.78] |
+| Gini-Simpson | 0.899 | 0.915 | 0.234 | 0.281 | +0.24 [-0.16, +0.62] |
+| Observed genera | 179.5 | 140.0 | 0.133 | 0.200 | -0.31 [-0.67, +0.11] |
+| Pielou's evenness | 0.561 | 0.640 | 0.037 | 0.200 | +0.42 [+0.03, +0.78] |
+| Chao1 | 182.2 | 141.4 | 0.133 | 0.200 | -0.31 [-0.66, +0.11] |
+| ACE | 184.2 | 141.4 | 0.133 | 0.200 | -0.31 [-0.66, +0.11] |
 
 Sensitivity analyses (feature level; excluding flagged samples) gave the same
-picture: no Shannon difference (p = 0.904 and 0.934).
+picture: no Shannon difference (p = 0.904 and 0.934) and no significant
+richness difference (feature-level Chao1 p = 0.479).
+
+### Concordance and discordance with the source study
+
+The source study reports higher Chao1 and ACE richness in healthy controls than
+in each disease group (P < 0.05, Tukey's HSD) and no Shannon or Simpson
+differences; this pipeline also finds no Shannon or Simpson difference, and
+its richness estimates trend the same way (observed genera 179.5 vs 140.0,
+Chao1 182.2 vs 141.4; r = -0.31, p = 0.133) without reaching significance.
+The analyses differ in contrast and processing: the paper compares four groups
+on 97% OTUs with ANOVA and post-hoc tests against controls, whereas the
+primary comparison here is H vs P only, at genus level after prevalence
+filtering, with Mann-Whitney tests and BH correction across six metrics. A
+post-hoc check shows that the healthy-group richness advantage in this dataset
+comes from six unusually high-richness healthy samples (without them,
+genus-level Chao1 medians are 139.8 vs 141.4, p = 0.649;
+`results/m3_richness_high_richness_check.csv`). Which of the paper's findings
+are reproduced, not reproduced or not attempted is set out in
+[RESULTS_DISCUSSION.md](RESULTS_DISCUSSION.md#concordance-and-discordance-with-the-source-study).
 
 ### Beta diversity (354 prevalence-filtered genera, 999 permutations)
 
@@ -138,6 +165,25 @@ picture: no Shannon difference (p = 0.904 and 0.934).
 | L1 logistic regression | 0.92 [0.81, 1.00] | 0.917 | 0.493 | 0.0099 | 0.932 | 0.636 |
 | Random forest | 0.81 [0.65, 0.94] | 0.790 | 0.498 | 0.0099 | 0.870 | 0.723 |
 
+**Read the confidence intervals with caution.** They bootstrap the
+out-of-fold predictions of models fitted on only 34 samples with hundreds of
+candidate features, so they ignore the variability of feature selection and
+tuning and tend to be optimistic. The permuted-label null and the ablation
+(last column) are the stronger evidence: the signal is real for this dataset,
+but most of it comes from a single taxon.
+
+**Driver taxon.** "Unclassified Bacilli" could not be identified: the figshare
+deposit contains no representative sequences, so there was nothing to search
+against a 16S reference. Its dominant feature (ASV8652, 881 of the label's
+2,077 reads) is detected in 12/18 periodontitis and 11/16 hypertension +
+periodontitis samples but in only 1/16 healthy and 3/17 hypertension-only
+samples. That periodontitis-linked pattern appears in both groups of people,
+which is more typical of a real organism than of random contamination. But
+among healthy samples the label occurs only in the high-richness subset (5 of
+6, none of the other 10), and each of its other 31 features occurs in a
+single sample, so a technical component cannot be excluded
+(`results/m7_driver_taxon.md`).
+
 ![ROC](figures/12_roc_curves.png)
 
 ### Co-occurrence network
@@ -162,10 +208,10 @@ call is justified in [DECISIONS.md](DECISIONS.md).
 
 | Module | What it does |
 |---|---|
-| Data layer | Downloads and caches the figshare zip, parses the BIOM table, cleans SILVA taxonomy, writes a QC report (read depth, sparsity, rarefaction curves), flags samples where >50% of reads come from features seen in no other sample (H7, P7, P9, P18; T9, T10, TP7, TP15) |
+| Data layer | Downloads and caches the figshare zip, parses the BIOM table, cleans the taxonomy strings (reference database not stated in the deposit; see DATA_SOURCE.md), writes a QC report (read depth, sparsity, rarefaction curves), flags samples where >50% of reads come from features seen in no other sample (H7, P7, P9, P18; T9, T10, TP7, TP15) |
 | M1 Preprocessing | Aggregates to genus; prevalence filter (≥10% of samples and mean relative abundance ≥0.01%); rarefied counts (for alpha diversity), relative abundances and CLR with pseudocount 0.5 (for everything else) |
 | M2 Composition | Stacked bars per sample and per group at phylum and genus level; core microbiome (≥90% prevalence within a group) |
-| M3 Alpha diversity | Shannon, Gini-Simpson, observed richness, Pielou's evenness; Mann-Whitney U, rank-biserial r with bootstrap CI, BH across metrics; two sensitivity analyses |
+| M3 Alpha diversity | Shannon, Gini-Simpson, observed richness, Pielou's evenness, Chao1, ACE; Mann-Whitney U, rank-biserial r with bootstrap CI, BH across metrics; two sensitivity analyses |
 | M4 Beta diversity | Bray-Curtis and Jaccard; PCoA and NMDS with 95% ellipses; PERMANOVA and PERMDISP implemented from scratch with 999 permutations |
 | M5 Differential abundance | Per-genus Mann-Whitney U on CLR, BH-FDR, volcano plot, ranked table, label-shuffled null; pre-declared species-level red-complex test |
 | M6 Network | Spearman correlation on CLR abundances, \|rho\| ≥ 0.6 and q < 0.05, hubs by degree |
@@ -190,6 +236,15 @@ group, flagged samples, taxonomic level (phylum to genus) and number of taxa.
   reference database and can be wrong for close relatives. 16S says nothing
   about genes or function (e.g. gingipain or other virulence genes) and does
   not distinguish live from dead cells.
+- **Reference database.** The deposit does not state which database assigned
+  the taxonomy or at what confidence; the names follow SILVA 138-era
+  conventions, not HOMD/eHOMD (DATA_SOURCE.md). The expanded Human Oral
+  Microbiome Database (eHOMD) is the curated reference of record for oral 16S
+  data and gives better species-level resolution for oral taxa such as the red
+  complex, so the species labels here carry more uncertainty than the
+  genus-level results. Re-annotating the sequences against eHOMD is the first
+  thing I would do next; it requires re-processing the raw reads (SRA
+  PRJNA1304526), because the deposit contains no sequences.
 - **Compositional data.** Sequencing gives proportions, not absolute amounts,
   so an apparent increase in one taxon can be a decrease in others. CLR
   transforms reduce but do not remove this problem, and the result depends
@@ -206,8 +261,10 @@ group, flagged samples, taxonomic level (phylum to genus) and number of taxa.
 - **Cross-sectional design.** Samples were taken at one time point, so it is
   impossible to tell whether community differences precede periodontitis,
   result from it (for example, deeper pockets favour anaerobes), or are both
-  caused by something else (smoking, oral hygiene, age, diet, medication).
-  No covariates were available to adjust for.
+  caused by something else (oral hygiene, age, diet, medication; smokers were
+  excluded by the study). Nothing was adjusted for: the figshare deposit has
+  only group labels, and the per-sample age, sex and clinical measurements in
+  the article's supplement were not used.
 - **Saliva, one study.** Saliva mixes bacteria from all oral surfaces and
   dilutes the subgingival pocket community where periodontitis occurs. All
   groups come from one study and one sequencing run, so the replication is
@@ -221,14 +278,27 @@ group, flagged samples, taxonomic level (phylum to genus) and number of taxa.
 run_all.py            full pipeline (writes results/ and figures/)
 app.py                Streamlit dashboard
 src/oralbiome/        one module per step (data, qc, preprocessing, composition, alpha,
-                      beta, differential, network, classifier, replication, validation)
-tests/                pytest suite (36 tests)
+                      beta, differential, network, classifier, replication,
+                      driver_taxon, validation)
+tests/                pytest suite (48 tests)
 data/raw/             cached original zip (CC BY 4.0)
 data/processed/       parsed and derived tables
 results/              every number reported anywhere
 figures/              16 figures at 300 dpi + CAPTIONS.md
 docs/screenshots/     dashboard screenshots
 HYPOTHESIS.md  METHODS.md  DECISIONS.md  RESULTS_DISCUSSION.md  DATA_SOURCE.md
+LICENSE (code, MIT)   LICENSE-DATA (data, CC BY 4.0)
 ```
 
-Data: Guo Z. et al. (2025), figshare, CC BY 4.0.
+## Licenses
+
+The **code** is released under the MIT License ([LICENSE](LICENSE)). The
+**data** are not covered by the MIT License: the raw zip in `data/raw/` is
+redistributed unchanged under **CC BY 4.0**, and the derived tables in
+`data/processed/` and `results/` are shared under the same license. The required
+attribution and license details are in [LICENSE-DATA](LICENSE-DATA).
+
+## References
+
+- Guo Z., Yu X., Liu Y., Hu Q., Zhang Z., Zhang C., Li J. (2026). "A comparative analysis of oral microbial communities in hypertensive patients with and without chronic periodontitis." BMC Oral Health 26(1):836. doi:10.1186/s12903-026-08144-6
+- Guo, Ziyin (2025). OTU Abundance Data: Oral Microbiome in Hypertensive Patients with/without Periodontitis. figshare. Dataset. https://doi.org/10.6084/m9.figshare.29897750.v1

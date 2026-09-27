@@ -102,7 +102,8 @@ counts_n = meta["group"].value_counts().reindex(GROUP_DOMAIN).dropna().astype(in
 n_text = ", ".join(f"{g} n={n}" for g, n in counts_n.items())
 
 st.title("ORALBIOME: oral microbiome dysbiosis in periodontitis")
-st.caption(f"Saliva 16S rRNA data, Guo et al. (figshare, CC BY 4.0). Showing: {n_text}. "
+st.caption(f"Saliva 16S rRNA data from the source study (figshare, CC BY 4.0; full citation in "
+           f"DATA_SOURCE.md). Showing: {n_text}. "
            "All results are associations from a cross-sectional study, not causal findings "
            "and not a diagnostic test.")
 

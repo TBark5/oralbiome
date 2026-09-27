@@ -25,7 +25,7 @@ refer to constants in `src/oralbiome/config.py`.
 
 - **D6. Dataset choice.** Searched for public healthy-vs-periodontitis 16S tables.
   Most studies deposit only raw reads (SRA), which would need a full DADA2 run.
-  The Guo et al. figshare deposit has a ready-made ASV table, per-sample group
+  The source study's figshare deposit has a ready-made feature table, per-sample group
   labels and a CC BY 4.0 license, and it contains the three red-complex species,
   so it was chosen. Saliva (not subgingival plaque) is a limitation: it dilutes
   the pocket community.
@@ -195,3 +195,56 @@ refer to constants in `src/oralbiome/config.py`.
   and the gzip header timestamp is fixed, so a rerun reproduces every result
   and figure byte for byte (checked by rerunning in a fresh clone with a new
   virtual environment).
+
+## Correctness, documentation and publication pass
+
+- **D45. Alpha metric set changed from four to six (Chao1 and ACE added).**
+  Reason: the source study reports Chao1 and ACE, and a direct comparison was
+  impossible without them. BH correction now runs over six metrics, which
+  changed three q-values (Gini-Simpson 0.312 -> 0.281, observed 0.267 -> 0.200,
+  Pielou 0.147 -> 0.200) and no conclusion. P1's pre-registered criterion is
+  on Shannon, which is unaffected. Chao1 is the bias-corrected form; ACE uses
+  a rare threshold of 10 reads (the conventional value) and would fall back to
+  Chao1 when all rare reads are singletons (never happens in this data).
+- **D46. The source study's contrast was checked in the full text, not
+  assumed.** The task description said the paper compared healthy controls
+  against pooled disease groups. The article (PMC13169644) actually reports
+  one-way ANOVA across four groups with Tukey's HSD comparing each disease
+  group to healthy controls, and reports no Shannon/Simpson differences. The
+  documentation describes what the article says.
+- **D47. Post-hoc richness diagnostic.** Richness (observed, Chao1, ACE) was
+  re-tested without the six high-richness healthy samples (> 1,000 observed
+  features at rarefaction depth, the same definition as D29). It is labelled
+  post hoc, sits outside every BH family and is used only to explain the
+  discordance with the source study.
+- **D48. Taxonomy database reported as unknown.** No source (deposit, article,
+  supplement) names it; naming conventions suggest SILVA 138-era, and one
+  spelling contradicts SILVA 138, so the database is stated as "not stated,
+  most likely SILVA 138-era, not HOMD" rather than guessed.
+- **D49. Driver taxon not identified; no FASTA written.** The deposit contains
+  no representative sequences, so there was nothing to extract or search, and
+  no network search was attempted. `driver_taxon.py` documents what the
+  deposit does show (prevalence, feature make-up, overlap with atypical
+  samples, network partners). Fisher tests in that report are descriptive.
+- **D50. Citations.** The paper and the figshare dataset are different works
+  (2026, seven authors; 2025, one depositor). Each has one canonical string,
+  used verbatim wherever it is cited; code and internal notes say "the source
+  study" instead of partial author-year strings. A test checks that every full
+  citation in the repository is byte-identical. HYPOTHESIS.md was edited only
+  to correct the citation and one factual detail (smokers were excluded by
+  the study); the predictions are unchanged.
+- **D51. Factual corrections from the full text.** Smokers and recent
+  antibiotic/probiotic users were excluded by the study, so "smoking" was
+  removed from lists of possible confounders. Per-sample age, sex and clinical
+  measurements exist in the article's supplement (not in the figshare
+  deposit); they were not used, and the documents now say so instead of
+  "no covariates were available". Features are described as the paper's 97%
+  OTUs even though the deposit labels them "ASV".
+- **D52. Licenses.** Code: MIT (LICENSE). Data: CC BY 4.0, verified on the
+  figshare API record on 2026-09-27; the cached zip is byte-identical to the
+  published file (same MD5). LICENSE-DATA records the license, attribution and
+  a no-modification statement. The article itself is CC BY-NC-ND 4.0, so none
+  of its text, figures or supplementary files are redistributed.
+- **D53. Resume and LinkedIn material lead with the replication failure.** The
+  AUC is always reported together with the ablation and replication results
+  and the caveat that its bootstrap CI is optimistic.

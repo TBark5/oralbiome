@@ -2,10 +2,16 @@
 
 Written in Phase 0, before any analysis was run. At that point I had seen only
 the dataset's structure (sample groups, read depths, the fact that the three
-named pathogens appear in the taxonomy) and the abstract of the source paper
-(Guo et al., BMC Oral Health 2026), which reports lower alpha diversity and
-enrichment of *Treponema denticola* in disease. That abstract is prior
-knowledge, so these predictions are not fully blind.
+named pathogens appear in the taxonomy) and the abstract of the source study,
+which reports lower alpha diversity and enrichment of *Treponema denticola*
+in disease:
+
+> Guo Z., Yu X., Liu Y., Hu Q., Zhang Z., Zhang C., Li J. (2026). "A comparative analysis of oral microbial communities in hypertensive patients with and without chronic periodontitis." BMC Oral Health 26(1):836. doi:10.1186/s12903-026-08144-6
+
+That abstract is prior knowledge, so these predictions are not fully blind.
+(The citation above, and one factual detail about smoking in the last
+section, were corrected in a later documentation pass; the predictions are
+unchanged.)
 
 ## Biological question
 
@@ -54,5 +60,5 @@ sequencing run, different people.
 
 The design is cross-sectional. Even a perfect association cannot tell whether
 the community shift causes periodontitis, results from it (e.g. deeper pockets
-creating anaerobic niches), or is driven by a shared third factor (smoking,
-oral hygiene, age). Nothing here has clinical or diagnostic value.
+creating anaerobic niches), or is driven by a shared third factor (oral
+hygiene, age; smokers were excluded by the study). Nothing here has clinical or diagnostic value.

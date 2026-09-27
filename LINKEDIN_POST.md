@@ -1,42 +1,47 @@
 # LinkedIn post (draft)
 
-I just finished a personal research project: ORALBIOME, an analysis of the
-oral microbiome in periodontitis (gum disease) using public 16S rRNA
-sequencing data.
+My latest project ended with a negative result, and I think that is the most
+useful thing it produced.
 
-The question: does the bacterial community in saliva differ between people
-with healthy gums and people with periodontitis, and can the community alone
-predict who has the disease?
+I analysed public 16S rRNA sequencing data from saliva (67 people) to ask
+whether the oral bacterial community differs in periodontitis (gum disease),
+and whether the community alone can tell who has it. I wrote the predictions
+down before running anything.
 
-What I found, in 16 healthy vs 18 periodontitis samples:
-- Overall community composition differed modestly between groups (group
-  explained about 8% of the variation).
-- Three classic periodontal pathogens (P. gingivalis, T. forsythia,
-  T. denticola) were more abundant in periodontitis, as I had predicted
-  before running the analysis.
-- A classifier separated the groups with AUC 0.92, clearly better than the
-  same pipeline on shuffled labels.
+In the main comparison (16 healthy people vs 18 with periodontitis), a
+classifier separated the groups with an AUC of 0.92, well above the same
+pipeline run on shuffled labels. On its own, that looks like a finding.
 
-And what made me more careful:
-- Most of the classifier's performance came from a single unidentified taxon.
-  Without it, the AUC fell to 0.64.
-- When I ran the same pipeline on a second group of participants (people with
-  high blood pressure, with and without periodontitis), the community-level
-  signal did not replicate.
-- Quality control showed probable contamination in some samples, which I
-  flagged and tested instead of quietly removing.
+Then I checked it.
 
-My main takeaway: with small microbiome datasets, controls matter as much as
-the headline result. Permuted-label nulls, pre-registered predictions,
-sensitivity analyses and replication changed how I would describe this result,
-from "a microbial signature of periodontitis" to "some associations worth
-testing in larger studies". These are associations only; nothing here is a
-diagnostic tool.
+- Removing a single unidentified taxon dropped the AUC to 0.64. The model was
+  mostly one feature.
+- In a second group of people from the same study (people with high blood
+  pressure, with and without periodontitis), the classifier performed at
+  chance (AUC 0.52), and the overall community difference was no longer
+  detectable.
+- Quality control showed probable contamination in some samples, and the
+  healthy group's apparent extra richness turned out to come from six unusual
+  samples.
 
-Built in Python (pandas, SciPy, scikit-learn, NetworkX, Streamlit) with a
-test suite and a one-command reproducible pipeline. Data: Guo et al., BMC
-Oral Health 2026, shared under CC BY 4.0.
+Some things did hold up. Three well-known gum-disease bacteria (P. gingivalis,
+T. forsythia, T. denticola) were more abundant in periodontitis, as predicted
+and as the original publication reports. I also compared my results with
+that paper point by point, including where we differ and why.
+
+Why post a result that did not replicate? Small microbiome studies produce
+impressive numbers easily. The permuted-label control, the ablation and the
+replication cohort are what showed how much this one could actually support.
+Without them I would have reported a "microbial signature of periodontitis"
+that probably isn't one.
+
+Everything is associational, from a cross-sectional study, and nothing here
+is a diagnostic tool. The code is tested and regenerates every number from
+the raw data with one command.
+
+Built in Python (pandas, SciPy, scikit-learn, NetworkX, Streamlit). Data
+shared under CC BY 4.0 by the authors of: Guo Z., Yu X., Liu Y., Hu Q., Zhang Z., Zhang C., Li J. (2026). "A comparative analysis of oral microbial communities in hypertensive patients with and without chronic periodontitis." BMC Oral Health 26(1):836. doi:10.1186/s12903-026-08144-6
 
 The code, figures and full write-up (including what did not work) are on my GitHub.
 
-#bioinformatics #microbiome #datascience #python #research
+#bioinformatics #microbiome #reproducibility #python

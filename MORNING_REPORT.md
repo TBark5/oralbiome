@@ -1,57 +1,14 @@
 # Morning report
 
-## Status: complete
+## Status
 
-All phases (0-9) are done and committed. Every module M1-M7 was built; none
-was cut. Real data was used throughout.
+The analysis is unchanged in design. This pass fixed citations, reconciled
+the results with the source publication, audited data provenance and
+licensing, documented the classifier's driver taxon, rewrote the resume and
+LinkedIn material, and prepared the repository for publication.
 
-## What works
-
-| Item | Status | How it was checked |
-|---|---|---|
-| `python run_all.py` | Works; about 3 min end to end; slowest steps are M7 (85 s) and replication (82 s), each under the 2-minute cap | Ran from scratch after deleting all outputs, and again in a fresh `git clone` with a brand-new virtual environment; all outputs were byte-identical |
-| `python -m pytest` | 36 of 36 tests pass (about 10 s) | Also passed in the fresh environment |
-| `streamlit run app.py` | Launches cleanly; 9 tabs; filters for groups, flagged samples, taxonomic level and top-N | Streamlit AppTest across all filters with no exceptions, plus a live launch with headless-Chrome screenshots (`docs/screenshots/`) |
-| README numbers | Match `/results` | An automated check of 31 key values against `results/*.json` found no mismatches |
-| AI attribution | None in git history or tracked files | Searched `git log` and every tracked file for AI-tool names, co-author trailers and tool footers: no hits. All commits use the machine's existing git identity |
-| Placeholders / TODOs | None | `git grep` for TODO, FIXME, TBD and placeholder links |
-
-## What does not work, or is weaker than it looks
-
-- **The findings do not replicate.** In the hypertensive cohort (T vs TP), PERMANOVA
-  p = 0.402 and the L1 classifier AUC = 0.52 (permutation p = 0.495). This is a
-  scientific result, not a bug, but it is the most important caveat.
-- **The classifier rests on one taxon.** Dropping "Unclassified Bacilli" lowers
-  the AUC from 0.92 to 0.64 (L1) and from 0.81 to 0.72 (random forest).
-- **Likely contamination or batch effects in the source data.** 22,781 of 25,540
-  features appear in only one sample; six healthy samples have about 5x the
-  usual feature count. The public files have no negative controls, so this
-  cannot be resolved.
-- **Permutation p-values bottom out at 0.0099** because the null uses 100 shuffles
-  (runtime cap). This is stated wherever p = 0.0099 appears.
-
-## Data
-
-**Real data**: Guo et al., *BMC Oral Health* 2026, figshare
-10.6084/m9.figshare.29897750 (CC BY 4.0). Saliva, 16S V3-V4, 67 samples:
-H 16, P 18, T 17, TP 16. It is cached in `data/raw/` and committed, so the project
-runs offline. The synthetic fallback was **not** needed; the synthetic generator
-is used only as a positive control.
-
-## Final numbers (primary comparison: healthy n=16 vs periodontitis n=18)
-
-| Analysis | Result |
-|---|---|
-| Alpha diversity (Shannon) | p = 0.796, r = +0.06 [-0.35, +0.45]; no metric passes BH (P1 not supported) |
-| Beta diversity (Bray-Curtis) | PERMANOVA R² = 0.082, p = 0.015; PERMDISP p = 0.065 |
-| Differential abundance | 2 of 354 genera pass FDR 5%; 72 with raw p < 0.05 vs 17.7 expected; null average 0.07 |
-| Red-complex species (pre-declared) | *P. gingivalis* q = 0.005, *T. forsythia* q = 0.012, *T. denticola* q = 0.004, all higher in periodontitis |
-| Network | 177 genera, 1,426 edges; red-complex genera co-occur (rho 0.68-0.85) and are hubs |
-| Classifier | L1-LR AUC 0.92 [0.81, 1.00]; RF 0.81 [0.65, 0.94]; permutation p = 0.0099 for both |
-| Replication (T n=17 vs TP n=16) | PERMANOVA p = 0.402; L1-LR AUC 0.52; red-complex q = 0.53-0.76 |
-| Positive control (synthetic) | Sensitivity 67%, false discovery proportion 9% |
-
-## Exact run commands (Windows, from the project folder)
+Run commands (Windows, from the project folder; on macOS/Linux use
+`.venv/bin/python`):
 
 ```
 .venv\Scripts\python -m pip install -r requirements.txt
@@ -61,42 +18,138 @@ is used only as a positive control.
 .venv\Scripts\python -m streamlit run app.py
 ```
 
-On macOS/Linux, replace `.venv\Scripts\python` with `.venv/bin/python`.
+## What changed in this pass
 
-## Modules cut
+| Task | Change |
+|---|---|
+| T1 Citations | The paper and the figshare dataset now each have one canonical citation, used verbatim in every document that cites them (README, DATA_SOURCE, HYPOTHESIS, LICENSE-DATA, LINKEDIN_POST). The old README footer mixed the dataset year (2025) with the paper. Checked against PubMed (PMID 41923033). A new test fails if any full citation differs or a partial citation appears |
+| T2 Source-study comparison | Chao1 and ACE added to M3 (six metrics, BH across all six). New section "Concordance and discordance with the source study" in RESULTS_DISCUSSION.md, condensed version in README.md |
+| T3 Taxonomy database | Stated as "not stated in any source" in DATA_SOURCE.md and METHODS.md; eHOMD limitation added to README; P3 weight statement added to RESULTS_DISCUSSION.md |
+| T4 Driver taxon | New `driver_taxon.py` step writes `results/m7_driver_taxon.md` (+ JSON/CSV); conclusion in README and RESULTS_DISCUSSION |
+| T5 Provenance and licenses | figshare record re-verified; `LICENSE` (MIT, code) and `LICENSE-DATA` (CC BY 4.0, data) added; README explains the split |
+| T6 Methods defences | Rarefaction (McMurdie & Holmes 2014) and CV-AUC CI caveats in METHODS.md; CI caveat directly under the README classifier table; two new interview questions (now 22) |
+| T7 Resume / LinkedIn | Rewritten to lead with the replication failure |
+| Corrections found along the way | Smokers were excluded by the study (removed "smoking" as a confounder); per-sample covariates exist in the article supplement (documents no longer say "no covariates were available"); features are described as the paper's 97% OTUs |
 
-None.
+Logged as D45-D53 in DECISIONS.md.
 
-## The 5 things you must understand before discussing this with anyone
+## Did any computed number move?
 
-1. **Compositionality.** Sequencing gives proportions, not amounts. That is why
-   the pipeline uses CLR transforms and rank tests, and why "taxon X increased"
-   always means "increased *relative to the rest*". See INTERVIEW_PREP Q2 and
-   METHODS section 1.
-2. **What PERMANOVA + PERMDISP say here.** Group explains about 8% of
-   between-sample variation (p = 0.015). The spread difference is borderline
-   (p = 0.065), so part of the signal could be that periodontitis samples are
-   more variable. Be able to write the pseudo-F formula (METHODS section 4).
-3. **Why the classifier result is weaker than AUC 0.92 suggests.** Leakage was
-   prevented (all preprocessing in-fold, nested CV) and the permuted-label null
-   is about 0.5, so the AUC is real *for this dataset*. But ablation shows one
-   unidentified taxon carries most of it, and it does not transfer to the second
-   cohort. Lead with this caveat; don't wait to be asked.
-4. **Pre-declared vs exploratory.** The red-complex test was written into
-   HYPOTHESIS.md before analysis, so correcting over 3 tests is legitimate; the
-   354-genus scan is the exploratory counterpart (only 2 FDR hits). Know why
-   *P. gingivalis* is significant while the genus *Porphyromonas* is not
-   (*P. pasteri* dilutes it).
-5. **Association, not causation, and not diagnosis.** Cross-sectional design, a
-   small sample, saliva rather than plaque, possible contamination, and no
-   covariates (smoking, age, hygiene). The honest headline is "some expected
-   associations, a fragile classifier, and no replication". Being able to
-   explain *why* is the strongest part of this project.
+Only in M3, and only because two metrics were added:
 
-## Where to look
+- New results: Chao1 182.2 (H) vs 141.4 (P), ACE 184.2 vs 141.4; both
+  p = 0.133, q = 0.200, r = -0.31.
+- Three q-values changed because BH now corrects over six metrics instead of
+  four: Gini-Simpson 0.312 -> 0.281, observed richness 0.267 -> 0.200,
+  Pielou's evenness 0.147 -> 0.200.
+- The replication cohort's alpha table gained Chao1 (p = 0.787) and ACE
+  (p = 0.759).
+- New outputs: `results/m3_richness_high_richness_check.csv` (post hoc) and
+  the `results/m7_driver_taxon.*` files.
 
-- `README.md`: overview, results tables, limitations
-- `RESULTS_DISCUSSION.md`: each prediction evaluated
-- `DECISIONS.md`: 44 logged decisions with reasons
-- `METHODS.md`: formulas; `INTERVIEW_PREP.md`: 20 Q&As
-- `PROGRESS.md`: handoff state
+Every other result and figure regenerated byte-identical: PERMANOVA,
+differential abundance, network, classifier, replication and positive
+control. No conclusion changed: P1 was pre-registered on Shannon (p = 0.796),
+which is unaffected.
+
+## T2: how this project relates to the published paper
+
+The paper did **not** pool the disease groups. It ran a four-group ANOVA with
+Tukey's HSD comparing each disease group to healthy controls, and it also
+found **no** Shannon or Simpson difference. So:
+
+- Reproduced: no Shannon/Simpson difference; red-complex species enriched in
+  periodontitis.
+- Same direction, not significant here: Chao1/ACE lower in periodontitis
+  (p = 0.133); *Fretibacterium*/*Filifactor* up and *Haemophilus* down.
+- Not directly comparable: beta diversity (paper: weighted UniFrac, four
+  groups, R² = 0.126; here: Bray-Curtis, H vs P, R² = 0.082, p = 0.015).
+- Not attempted: UniFrac, PICRUSt2 function, *Streptococcus* sp. I-G5,
+  periodontitis stage.
+- Post-hoc finding: the healthy group's richness advantage in this dataset
+  comes from six high-richness healthy samples (without them, Chao1 medians
+  139.8 vs 141.4, p = 0.649).
+- The paper reports that hypertension-only patients already show
+  periodontitis-like dysbiosis, which explains why T vs TP is a weak
+  replication contrast.
+
+## T3 outcome: taxonomy database
+
+The reference database and confidence threshold are **not stated** in the
+figshare deposit, the article or its supplementary files. The names follow
+SILVA 138-era conventions (not HOMD/eHOMD), but one phylum spelling does not
+match SILVA 138, so the release cannot be confirmed. The documents now treat
+species-level labels as less certain than genus-level results and name eHOMD
+re-annotation as the first next step.
+
+## T4 outcome: driver taxon
+
+**Could not be identified.** The deposit contains no representative
+sequences, so no FASTA could be extracted and no reference search was
+possible; `results/m7_driver_taxon.fasta` was deliberately not created.
+Evidence from the deposit:
+
+- One feature (ASV8652) carries 881 of the label's 2,077 reads. It is
+  detected in 12/18 P and 11/16 TP samples but in 1/16 H and 3/17 T.
+- Among healthy samples the label appears only in the high-richness subset.
+- Its only network edges are negative correlations with soil-associated taxa.
+
+The disease-linked pattern across two groups of people looks more like a real
+organism than random contamination, but a technical component cannot be
+excluded.
+
+## T5 outcome: data license
+
+- **License:** CC BY 4.0, verified on the figshare API record (version 1, the
+  only version) on 2026-09-27.
+- **Integrity:** the committed zip's MD5 (`6a49330fadc5e773059c52a84f6af67c`)
+  matches the published file.
+- **Redistribution:** CC BY 4.0 permits it with attribution, a license link
+  and a statement of changes. All three are in LICENSE-DATA.
+- **Code:** MIT (LICENSE).
+
+## Final numbers (unchanged except M3)
+
+| Analysis | Result |
+|---|---|
+| Alpha (Shannon, pre-registered) | p = 0.796; no metric passes BH across six |
+| Alpha (Chao1) | 182.2 vs 141.4, p = 0.133, q = 0.200 |
+| Beta (Bray-Curtis PERMANOVA) | R² = 0.082, p = 0.015; PERMDISP p = 0.065 |
+| Red-complex species | q = 0.005 / 0.012 / 0.004, all higher in periodontitis |
+| Classifier (L1-LR) | AUC 0.92 [0.81, 1.00; likely optimistic]; permutation p = 0.0099; 0.64 without the driver taxon |
+| Replication (T vs TP) | PERMANOVA p = 0.402; L1-LR AUC 0.52 |
+
+## Checks
+
+- **Tests:** `python -m pytest` passes 48 of 48 tests. New in this pass:
+  Chao1/ACE formulas, the driver report, citation byte-identity, both license
+  files, and the zip checksum.
+- **Number audit:** 53 key values recomputed from `results/` were found
+  verbatim in README.md (45) and RESULTS_DISCUSSION.md (8), with no
+  mismatches.
+- **Placeholders:** a `git grep` for to-do markers and placeholder text finds nothing.
+- **Dashboard:** screenshots were retaken because the dashboard changed.
+
+## Left undone
+
+- Re-processing the raw reads (SRA PRJNA1304526) to recover sequences, which
+  is needed to identify the driver taxon and to re-annotate against eHOMD.
+  This is outside the scope of a documentation pass.
+- The per-sample covariates in the article supplement (age, sex, BMI, blood
+  pressure, probing depth) were not used.
+
+## The 5 things to understand before discussing this
+
+1. **Compositionality.** Sequencing gives proportions, so the pipeline uses
+   CLR and rank tests (INTERVIEW_PREP Q2).
+2. **PERMANOVA + PERMDISP.** Group explains about 8% of variation; the spread
+   difference is borderline (METHODS section 4).
+3. **The classifier is fragile.** It has no leakage and beats the null, but
+   it is mostly one unidentifiable taxon and does not replicate. Its CI is
+   optimistic.
+4. **Agreement with the paper.** Richness and Shannon measure different
+   things. The paper and this project agree on direction and on
+   Shannon/Simpson; they differ on significance for reasons you can list
+   (INTERVIEW_PREP Q21-Q22).
+5. **Association only.** Cross-sectional design, saliva, possible
+   contamination, unknown taxonomy database, and no clinical use.

@@ -1,7 +1,7 @@
 """Data layer: download-or-synthesize, caching, parsing and the quality report.
 
-The real dataset is a BIOM 1.0 (JSON) ASV table from Guo et al. (2026),
-deposited on figshare under CC BY 4.0. It is downloaded once and cached as
+The real dataset is a BIOM 1.0 (JSON) feature table from the source study
+(full citation in DATA_SOURCE.md), deposited on figshare under CC BY 4.0. It is downloaded once and cached as
 the original zip in ``data/raw``; every later run reads the cached file, so
 the project runs offline. If the download fails and no cache exists, a
 Dirichlet-multinomial synthetic table is generated instead and labelled

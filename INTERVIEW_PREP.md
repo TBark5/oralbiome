@@ -1,6 +1,6 @@
 # Interview preparation
 
-Twenty questions I should be able to answer about this project, with short,
+Twenty-two questions I should be able to answer about this project, with short,
 accurate answers. Numbers refer to files in `results/`.
 
 ---
@@ -78,16 +78,24 @@ A unit test checks that the filter learns its columns from training rows only.
 **10. What does an AUC of 0.92 mean here, and why not trust it fully?**
 If you pick one periodontitis and one healthy sample at random, the model
 ranks the periodontitis sample higher 92% of the time. With 34 samples the
-bootstrap CI is 0.81-1.00. More importantly, removing one feature
-("Unclassified Bacilli") drops the AUC to 0.64, and the model does not
-transfer to the hypertensive cohort (AUC 0.52). So it is a dataset-specific
-association, not a general signature.
+bootstrap CI is 0.81-1.00, but I don't lean on that interval: bootstrapping
+out-of-fold predictions from 34 samples and hundreds of candidate features
+ignores the variability of feature selection and tuning, so it tends to be
+too narrow. The stronger evidence is the permuted-label null (the same
+pipeline on shuffled labels averages 0.49) and the ablation: removing one
+feature ("Unclassified Bacilli") drops the AUC to 0.64. The model also does
+not transfer to the hypertensive cohort (AUC 0.52). So it is a
+dataset-specific association, not a general signature. The driver taxon
+could not be identified, because the public deposit has no sequences.
 
 **11. What are the limits of 16S sequencing compared with shotgun metagenomics?**
 16S amplifies one ~470 bp region of one gene. It usually resolves genus but
 not reliably species or strain, it says nothing about function (for example,
 virulence genes), it has PCR and primer biases, and copy number varies
-between species. Shotgun sequencing reads all DNA, which gives species and
+between species. Species calls also depend on the reference database: here
+the database is not stated (the names look like SILVA 138), whereas eHOMD is
+the curated reference for oral bacteria, so I treat species labels as less
+certain than genera. Shotgun sequencing reads all DNA, which gives species and
 strain resolution plus gene content. It costs more, needs more depth, and in
 saliva much of the DNA is human.
 
@@ -112,26 +120,33 @@ than half their reads in one-off features, ran sensitivity analyses without
 them, and showed which findings were carried by the high-richness subset. I
 did not silently drop data.
 
-**15. Why did you rarefy for alpha diversity but use CLR elsewhere?**
-Richness depends directly on sequencing depth, so comparing alpha diversity
-fairly requires equal effort per sample, which rarefaction provides. For
-other analyses, rarefying throws away data, and it is better to keep all
-reads and use proportions (Bray-Curtis) or log-ratios (CLR). Using the right
-tool for each job is a common recommendation in the field.
+**15. Why did you rarefy for alpha diversity but use CLR elsewhere? Isn't rarefying frowned upon?**
+Rarefying is contested: McMurdie and Holmes (2014, PLoS Computational
+Biology, "Waste Not, Want Not: Why Rarefying Microbiome Data Is
+Inadmissible") showed it throws away data and power, especially for
+differential abundance. So I use it only where unequal depth directly biases
+the quantity being measured: richness, since a more deeply sequenced sample
+simply shows more taxa. Every other analysis keeps all reads and uses
+proportions (Bray-Curtis) or CLR log-ratios. Here the cost is small because
+the minimum depth (44,786 reads) is well past where the rarefaction curves
+flatten.
 
 **16. Why didn't the result replicate in T vs TP?**
 I can't tell which of three explanations is right: (1) the primary effect is
 inflated or partly false, because small studies overestimate effects;
 (2) hypertension or its medication changes the oral microbiome and masks the
-periodontitis signal; (3) the primary difference was partly driven by the
+periodontitis signal. The source study itself reports that hypertension-only
+patients already show periodontitis-like dysbiosis, so T is not a healthy
+reference; (3) the primary difference was partly driven by the
 unusual healthy samples. The red-complex effects still point the same way,
 just more weakly.
 
 **17. Can you say these bacteria cause periodontitis?**
 No. The data are cross-sectional (one sample per person), so the shift could
 come before the disease, result from it (deeper pockets create anaerobic
-niches), or be caused by a third factor such as smoking or oral hygiene,
-which was not recorded. All findings are associations.
+niches), or be caused by a third factor such as oral hygiene, diet or age.
+(Smokers were excluded by the study, so smoking is not a confounder here.)
+All findings are associations.
 
 **18. What does the co-occurrence network show?**
 Genera whose CLR abundances rise and fall together across people (|rho| ≥ 0.6,
@@ -147,9 +162,37 @@ the same code. It recovered 10 of 15 (sensitivity 67%) in the right direction
 with 1 false positive (9%). That is part of `run_all.py` and a unit test.
 
 **20. What would you do next with more data?**
-Re-process the raw reads with DADA2 and a decontamination step; BLAST the
-"Unclassified Bacilli" sequences; confirm differential abundance with ANCOM-BC
+Re-process the raw reads with DADA2 and a decontamination step, and
+re-annotate them against eHOMD; identify the "Unclassified Bacilli"
+sequences; confirm differential abundance with ANCOM-BC
 or ALDEx2; combine several public periodontitis cohorts and test whether a
 classifier trained on one study works on another; move to subgingival plaque
 and shotgun metagenomics for species and function; and sample people before
 and after periodontal treatment to study change over time.
+
+**21. Why do Chao1 and Shannon disagree here?**
+They measure different things. Chao1 (and ACE) estimate how many taxa are
+present, including unseen ones, and are driven by rare taxa: singletons and
+doubletons. Shannon weights taxa by abundance, so a handful of extra rare
+taxa barely moves it. In this data the healthy group's median Chao1 is higher
+(182.2 vs 141.4 genera, p = 0.133) while Shannon is essentially equal
+(p = 0.796), which means the difference lies in rare taxa, not in the
+dominant community. The source study saw the same split (Chao1/ACE differ,
+Shannon/Simpson do not). A post-hoc check showed the healthy group's extra
+richness comes from six unusually rich healthy samples; without them the
+medians are 139.8 vs 141.4.
+
+**22. Your result differs from the published paper's. Explain.**
+Less than it first appears. The paper reports higher Chao1/ACE in healthy
+controls and no Shannon/Simpson difference; I find no Shannon/Simpson
+difference either, and Chao1/ACE lower in periodontitis in the same direction,
+just not significant (p = 0.133, q = 0.200 after correcting across six
+metrics). We also agree that *P. gingivalis*, *T. forsythia* and
+*T. denticola* are enriched in periodontitis. The differences are
+methodological: they ran a four-group ANOVA with Tukey post-hoc tests on 97%
+OTUs; my primary test is healthy vs periodontitis only, with Mann-Whitney U,
+at genus level and with FDR correction. They used weighted UniFrac; I used
+Bray-Curtis and Jaccard, because the deposit has no sequences to build a
+tree. I don't claim their analysis is wrong. The honest statement is that the
+richness difference is sensitive to the contrast, the test and six unusual
+healthy samples.

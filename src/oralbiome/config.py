@@ -15,7 +15,7 @@ FIGURES: Path = ROOT / "figures"
 
 SEED: int = 42
 
-# Source data (Guo et al. 2026, figshare, CC BY 4.0).
+# Source data: figshare deposit of the source study (CC BY 4.0; citation in DATA_SOURCE.md).
 DATA_URL: str = "https://ndownloader.figshare.com/files/57145445"
 DATA_DOI: str = "10.6084/m9.figshare.29897750.v1"
 RAW_ZIP: Path = DATA_RAW / "guo2025_figshare_29897750.zip"

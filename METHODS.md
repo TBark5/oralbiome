@@ -4,6 +4,18 @@ This is a study guide for the formulas the code implements. Each section
 names the function that computes it. Notation: a sample has S observed taxa
 with counts x_1..x_S, total N = sum x_i, and proportions p_i = x_i / N.
 
+## 0. Where the taxonomy comes from
+
+The taxonomy strings are taken as deposited. The reference database and the
+classification confidence threshold are **not stated** in the figshare
+deposit, the article or its supplementary files. The names follow SILVA
+138-era conventions (for example `Prevotella_7`, `*_UCG_*` genera,
+`Actinobacteriota`), not HOMD/eHOMD, but one phylum spelling
+(`Campylobacterota`) differs from SILVA 138, so the release cannot be
+confirmed. Because the deposit contains no sequences, the features cannot be
+re-classified here. Species-level labels should therefore be treated as less
+certain than genus-level ones. Details: DATA_SOURCE.md.
+
 ## 1. Preprocessing (`preprocessing.py`)
 
 **Relative abundance:** p_i = x_i / N.
@@ -15,6 +27,19 @@ and mean over samples of p_j >= 0.0001.
 **Rarefaction:** draw exactly d reads from each sample *without replacement*
 (multivariate hypergeometric draw), where d = the smallest sample depth. This
 gives every sample the same sequencing effort, which matters for richness.
+
+*Why rarefaction is used here, and only here.* Rarefying is contested:
+McMurdie and Holmes (2014), "Waste Not, Want Not: Why Rarefying Microbiome
+Data Is Inadmissible" (PLoS Computational Biology 10(4):e1003531), showed that
+throwing away reads to reach a common depth loses statistical power and
+adds random noise, especially for differential abundance testing. This
+pipeline therefore uses rarefied counts **only for alpha diversity**, where
+unequal sequencing depth directly biases richness (a sample sequenced twice
+as deeply will show more taxa). Every other analysis (beta diversity,
+differential abundance, network, classifier) uses all reads, either as
+relative abundances or as CLR-transformed values. Rarefaction is a single
+seeded draw (seed 42) to the minimum depth of 44,786 reads, so no sample is
+dropped.
 
 **Expected richness at depth n** (rarefaction curves, `qc.py`, Hurlbert 1971):
 
@@ -47,6 +72,31 @@ taxa, so that higher = more diverse.
 
 **Pielou's evenness:** J' = H' / ln(S). It ranges from 0 (one taxon dominates)
 to 1 (perfectly even).
+
+**Chao1 (bias-corrected):** with F1 = number of taxa seen exactly once and F2
+= number seen exactly twice,
+
+Chao1 = S_obs + F1 (F1 - 1) / (2 (F2 + 1)).
+
+The idea: if many taxa are seen only once, many more were probably missed.
+
+**ACE (Abundance-based Coverage Estimator, Chao & Lee 1992):** taxa with at
+most 10 reads are "rare". With S_rare rare taxa holding N_rare reads, S_abund
+taxa with more than 10 reads, and F_i taxa seen exactly i times:
+
+- sample coverage of rare taxa: C = 1 - F1 / N_rare
+- gamma^2 = max( (S_rare / C) * sum_{i=1..10} i (i - 1) F_i / (N_rare (N_rare - 1)) - 1, 0 )
+- ACE = S_abund + S_rare / C + (F1 / C) * gamma^2
+
+If every rare read is a singleton, C = 0 and ACE is undefined; the code then
+returns Chao1. This never happened in the real data (checked for every sample, at
+genus and feature level, in both cohorts).
+
+**Why richness estimators and Shannon can disagree.** Chao1, ACE and observed
+richness count taxa and are driven by rare taxa (singletons and doubletons).
+Shannon and Simpson weight taxa by abundance, so adding many rare taxa raises
+Chao1 a lot and Shannon hardly at all. Disagreement between them is expected,
+not contradictory. All six metrics are tested and BH-corrected together.
 
 ## 3. Beta diversity (`beta.py`)
 
@@ -178,6 +228,17 @@ training set (nested CV).
 **Random forest:** 300 decision trees, each grown on a bootstrap sample and
 considering sqrt(p) random features per split; the prediction is the average
 vote. Importance = mean decrease in Gini impurity.
+
+**How much to trust the AUC confidence interval.** The reported 95% CI
+bootstraps the out-of-fold predicted probabilities (averaged over the 10 CV
+repeats). That captures sampling variability of the 34 samples but not the
+variability of the whole modelling procedure (feature filtering, penalty
+tuning, feature selection among hundreds of genera), and repeated CV splits
+of 34 samples are strongly correlated. With n = 34 and 354+ candidate
+features, bootstrap CIs on a cross-validated AUC therefore tend to be
+optimistic (too narrow). The permuted-label null (same full pipeline on
+shuffled labels) and the ablation (removing the top feature) are the stronger
+evidence, and the README says so beneath the classifier table.
 
 **ROC AUC:** the probability that a randomly chosen periodontitis sample gets
 a higher predicted probability than a randomly chosen healthy sample. It is
