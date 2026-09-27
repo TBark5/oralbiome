@@ -34,7 +34,7 @@
       "median_reference": 2.8843837762229443,
       "median_disease": 3.085881267696281,
       "p": 0.7958091685190174,
-      "q_bh_within_analysis": 0.7958091685190174,
+      "q_bh_within_analysis": 0.7958091685190173,
       "rank_biserial": 0.05555555555555555,
       "rank_biserial_ci_low": -0.3472222222222222,
       "rank_biserial_ci_high": 0.4513888888888889
@@ -43,7 +43,7 @@
       "median_reference": 0.8992129710943471,
       "median_disease": 0.9150151883915325,
       "p": 0.23390371367256635,
-      "q_bh_within_analysis": 0.31187161823008847,
+      "q_bh_within_analysis": 0.2806844564070796,
       "rank_biserial": 0.24305555555555555,
       "rank_biserial_ci_low": -0.1597222222222222,
       "rank_biserial_ci_high": 0.625
@@ -52,7 +52,7 @@
       "median_reference": 179.5,
       "median_disease": 140.0,
       "p": 0.1333536827195035,
-      "q_bh_within_analysis": 0.266707365439007,
+      "q_bh_within_analysis": 0.20007501698271768,
       "rank_biserial": -0.3055555555555556,
       "rank_biserial_ci_low": -0.6666666666666666,
       "rank_biserial_ci_high": 0.1111111111111111
@@ -61,10 +61,28 @@
       "median_reference": 0.5610207801718238,
       "median_disease": 0.6396873703625144,
       "p": 0.036847628270466774,
-      "q_bh_within_analysis": 0.1473905130818671,
+      "q_bh_within_analysis": 0.20007501698271768,
       "rank_biserial": 0.4236111111111111,
       "rank_biserial_ci_low": 0.027777777777777776,
       "rank_biserial_ci_high": 0.7777777777777778
+    },
+    "chao1": {
+      "median_reference": 182.16973684210527,
+      "median_disease": 141.41666666666669,
+      "p": 0.13338334465514512,
+      "q_bh_within_analysis": 0.20007501698271768,
+      "rank_biserial": -0.3055555555555556,
+      "rank_biserial_ci_low": -0.659895833333333,
+      "rank_biserial_ci_high": 0.1111111111111111
+    },
+    "ace": {
+      "median_reference": 184.2317638979152,
+      "median_disease": 141.35446936387467,
+      "p": 0.13338334465514512,
+      "q_bh_within_analysis": 0.20007501698271768,
+      "rank_biserial": -0.3055555555555556,
+      "rank_biserial_ci_low": -0.659895833333333,
+      "rank_biserial_ci_high": 0.1111111111111111
     }
   },
   "m4": {
@@ -425,6 +443,14 @@
       "pielou": {
         "p": 0.2139578253523272,
         "rank_biserial": 0.25735294117647056
+      },
+      "chao1": {
+        "p": 0.7870338486678974,
+        "rank_biserial": 0.058823529411764705
+      },
+      "ace": {
+        "p": 0.7594628653799336,
+        "rank_biserial": 0.0661764705882353
       }
     },
     "classifier": {
@@ -578,6 +604,39 @@
         "ci_high": 0.5074,
         "p": 0.5766,
         "q_bh_across_targets": 0.7595
+      }
+    ]
+  },
+  "driver_taxon": {
+    "driver": "Unclassified Bacilli",
+    "has_sequences": false,
+    "n_features": 32,
+    "top_feature": "ASV8652",
+    "top_feature_reads": 881,
+    "total_reads": 2077,
+    "detected": {
+      "H": 5,
+      "P": 16,
+      "T": 8,
+      "TP": 12
+    },
+    "fisher_presence_P_vs_H_p": 0.0010853810631341221,
+    "fisher_presence_TP_vs_T_p": 0.1570569553932711,
+    "network_partners": [
+      {
+        "partner": "Acidibacter",
+        "rho": -0.6232,
+        "q_bh": 0.0018
+      },
+      {
+        "partner": "Candidatus_Solibacter",
+        "rho": -0.6058,
+        "q_bh": 0.0026
+      },
+      {
+        "partner": "Unclassified Isosphaeraceae",
+        "rho": -0.604,
+        "q_bh": 0.0027
       }
     ]
   },

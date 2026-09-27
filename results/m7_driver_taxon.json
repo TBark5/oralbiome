@@ -1,0 +1,33 @@
+{
+  "driver": "Unclassified Bacilli",
+  "has_sequences": false,
+  "n_features": 32,
+  "top_feature": "ASV8652",
+  "top_feature_reads": 881,
+  "total_reads": 2077,
+  "detected": {
+    "H": 5,
+    "P": 16,
+    "T": 8,
+    "TP": 12
+  },
+  "fisher_presence_P_vs_H_p": 0.0010853810631341221,
+  "fisher_presence_TP_vs_T_p": 0.1570569553932711,
+  "network_partners": [
+    {
+      "partner": "Acidibacter",
+      "rho": -0.6232,
+      "q_bh": 0.0018
+    },
+    {
+      "partner": "Candidatus_Solibacter",
+      "rho": -0.6058,
+      "q_bh": 0.0026
+    },
+    {
+      "partner": "Unclassified Isosphaeraceae",
+      "rho": -0.604,
+      "q_bh": 0.0027
+    }
+  ]
+}

@@ -16,7 +16,10 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-from oralbiome import alpha, beta_run, classifier_run, composition, differential_run, network, config, data, preprocessing, qc, replication, style, validation  # noqa: E402
+from oralbiome import (  # noqa: E402
+    alpha, beta_run, classifier_run, composition, config, data, differential_run, driver_taxon,
+    network, preprocessing, qc, replication, style, validation,
+)
 
 
 def step(name: str):
@@ -82,6 +85,10 @@ def main() -> None:
 
     done = step("Replication cohort (T vs TP)")
     summary["replication"] = replication.run(full, pre, summary["m4"], summary["m7"])
+    done()
+
+    done = step("Driver taxon of the classifier")
+    summary["driver_taxon"] = driver_taxon.run(full)
     done()
 
     done = step("Positive control on synthetic data with planted differences")

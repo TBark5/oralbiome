@@ -174,7 +174,7 @@ with tabs[2]:
 # ---------------------------------------------------------------- M3
 with tabs[3]:
     alpha = load_csv("m3_alpha_per_sample.csv", index_col=0).loc[meta.index]
-    metric = st.segmented_control("Metric", ["shannon", "simpson", "observed", "pielou"],
+    metric = st.segmented_control("Metric", ["shannon", "simpson", "observed", "pielou", "chao1", "ace"],
                                   default="shannon", key="alpha_metric") or "shannon"
     st.subheader(f"Alpha diversity, genus level ({n_text})")
     data = alpha.reset_index(names="sample")
