@@ -146,7 +146,7 @@ excluded.
   - both commands from the brief (the full `git log` author/committer/message
     scan and the `git grep` over all tracked files) returned zero hits, before
     the push and again on a fresh clone from GitHub;
-  - all 17 pushed commits list the local identity as author and committer,
+  - every pushed commit lists the local identity as author and committer,
     checked in the clone and through the GitHub API;
   - the remote HEAD matched the local HEAD.
 - GitHub detects the MIT license for the code.
