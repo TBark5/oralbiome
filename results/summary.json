@@ -124,5 +124,132 @@
       "pcoa_explained_axis2": 0.0701926243777136,
       "nmds_stress": 0.10672790036652868
     }
+  },
+  "m5": {
+    "n_genera_tested": 354,
+    "n_significant_fdr05": 2,
+    "n_higher_in_disease": 1,
+    "n_higher_in_reference": 1,
+    "n_raw_p_below_005": 72,
+    "expected_raw_p_below_005_by_chance": 17.7,
+    "null_fdr_hits_mean": 0.07,
+    "null_fdr_hits_95th_percentile": 0.0,
+    "null_fraction_perms_with_any_fdr_hit": 0.02,
+    "null_raw_p_hits_mean": 16.955,
+    "n_null_permutations": 200,
+    "top10": {
+      "Unclassified Bacilli": {
+        "clr_mean_diff": 3.57632,
+        "rank_biserial": 0.89583,
+        "p": 1e-05,
+        "q_bh": 0.00328
+      },
+      "Subdoligranulum": {
+        "clr_mean_diff": -1.38013,
+        "rank_biserial": -0.79167,
+        "p": 9e-05,
+        "q_bh": 0.01593
+      },
+      "Enterobacter": {
+        "clr_mean_diff": -1.76081,
+        "rank_biserial": -0.66667,
+        "p": 0.00098,
+        "q_bh": 0.07872
+      },
+      "Nordella": {
+        "clr_mean_diff": -1.55547,
+        "rank_biserial": -0.66667,
+        "p": 0.00098,
+        "q_bh": 0.07872
+      },
+      "Unclassified Pirellulaceae": {
+        "clr_mean_diff": -1.69922,
+        "rank_biserial": -0.65972,
+        "p": 0.00111,
+        "q_bh": 0.07872
+      },
+      "Fretibacterium": {
+        "clr_mean_diff": 2.83532,
+        "rank_biserial": 0.63194,
+        "p": 0.00179,
+        "q_bh": 0.08915
+      },
+      "Peptococcus": {
+        "clr_mean_diff": 2.21144,
+        "rank_biserial": 0.625,
+        "p": 0.00201,
+        "q_bh": 0.08915
+      },
+      "Unclassified Isosphaeraceae": {
+        "clr_mean_diff": -1.31259,
+        "rank_biserial": -0.625,
+        "p": 0.00201,
+        "q_bh": 0.08915
+      },
+      "Gardnerella": {
+        "clr_mean_diff": -1.23141,
+        "rank_biserial": -0.61111,
+        "p": 0.00254,
+        "q_bh": 0.09373
+      },
+      "Psychrobacter": {
+        "clr_mean_diff": -1.15659,
+        "rank_biserial": -0.60417,
+        "p": 0.00284,
+        "q_bh": 0.09373
+      }
+    },
+    "red_complex_species": {
+      "Porphyromonas_gingivalis": {
+        "clr_mean_diff": 2.9787,
+        "rank_biserial": 0.59722,
+        "p": 0.00318,
+        "q_bh_across_targets": 0.00477,
+        "prevalence_reference": 0.5,
+        "prevalence_disease": 0.77778,
+        "species_rank_in_scan": 22
+      },
+      "Tannerella_forsythia": {
+        "clr_mean_diff": 1.89829,
+        "rank_biserial": 0.50694,
+        "p": 0.01237,
+        "q_bh_across_targets": 0.01237,
+        "prevalence_reference": 0.625,
+        "prevalence_disease": 0.77778,
+        "species_rank_in_scan": 62
+      },
+      "Treponema_denticola": {
+        "clr_mean_diff": 2.63343,
+        "rank_biserial": 0.65278,
+        "p": 0.00126,
+        "q_bh_across_targets": 0.00377,
+        "prevalence_reference": 0.625,
+        "prevalence_disease": 0.77778,
+        "species_rank_in_scan": 12
+      }
+    },
+    "red_complex_genera": {
+      "Porphyromonas": {
+        "rank": 108,
+        "clr_mean_diff": 0.71248,
+        "rank_biserial": 0.33333,
+        "p": 0.10123,
+        "q_bh": 0.32285
+      },
+      "Tannerella": {
+        "rank": 34,
+        "clr_mean_diff": 2.09796,
+        "rank_biserial": 0.50694,
+        "p": 0.01237,
+        "q_bh": 0.12161
+      },
+      "Treponema": {
+        "rank": 11,
+        "clr_mean_diff": 1.87736,
+        "rank_biserial": 0.59722,
+        "p": 0.00318,
+        "q_bh": 0.09373
+      }
+    }
   }
 }

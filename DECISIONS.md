@@ -101,3 +101,31 @@ refer to constants in `src/oralbiome/config.py`.
 - **D24. Ellipses** are 95% normal-theory data ellipses (chi-square, 2 df) fitted
   to each group's points. They are for visual guidance only; the tests are
   PERMANOVA and PERMDISP.
+
+## Phase 4 - M5 differential abundance
+
+- **D25. Test = two-sided Mann-Whitney U on CLR abundances, per genus, BH-FDR
+  at q < 0.05.** Rank-based, so it makes no normality assumption and needs no
+  extra package. Tools such as ANCOM-BC, ALDEx2 or MaAsLin2 are R packages;
+  choosing a simple, transparent test was preferred (rule "prefer standard,
+  well-documented methods"). The weakness: CLR is still affected by
+  compositional effects, which ANCOM-BC corrects more carefully.
+- **D26. Effect sizes:** CLR mean difference with a 95% Welch t interval
+  (magnitude on a log scale) plus rank-biserial r (probability-based).
+- **D27. Null control:** group labels shuffled 200 times and the full
+  scan + BH re-run each time. Also reported: the expected number of raw
+  p < 0.05 hits by chance (0.05 x number of genera).
+- **D28. Red-complex test is pre-declared and separate.** The three species were
+  named in HYPOTHESIS.md before analysis. They are tested on a species-level
+  CLR table (species prevalence filter, targets always kept), and BH is
+  applied across these 3 tests only. The genus-wide scan (354 tests) is
+  reported alongside so the reader can see how the genera rank without any
+  prior.
+- **D29. High-richness check (added after seeing the M3/M4 figures).** Six
+  healthy samples have > 1,000 observed features at rarefaction depth. For the
+  top 10 genera, `results/m5_high_richness_check.csv` counts detection inside
+  vs outside that subset. This is a descriptive diagnostic, not a new
+  exclusion rule; it was added because the healthy-enriched hits looked like
+  environmental taxa.
+- **D30. Volcano labels:** top 8 genera by p plus the three red-complex genera,
+  placed by a simple collision-avoiding routine (`style.place_labels`).

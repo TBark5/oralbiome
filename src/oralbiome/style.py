@@ -126,3 +126,38 @@ def box_with_points(ax: plt.Axes, values: dict[str, "np.ndarray"],
     ax.set_xticks(range(len(labels)))
     ax.set_xticklabels([f"{lab}\n(n={len(values[lab])})" for lab in labels])
     ax.grid(axis="x", visible=False)
+
+
+def place_labels(ax: plt.Axes, points: list[tuple[float, float, str, bool]]) -> None:
+    """Annotate points while avoiding overlapping text boxes.
+
+    ``points`` holds (x, y, text, bold). For each label, candidate offsets are
+    tried in order and the first whose bounding box does not overlap an
+    already placed label (or the point markers of other labels) is kept.
+    """
+    fig = ax.figure
+    renderer = fig.canvas.get_renderer()
+    placed = []
+    candidates = [(6, 6), (6, -8), (-6, 6), (-6, -8), (6, 16), (-6, 16), (6, -18), (-6, -18),
+                  (6, 26), (-6, 26), (6, -28), (-6, -28)]
+    for x, y, _, _ in points:
+        ax.scatter([x], [y], s=34, facecolor="none", edgecolor=INK, linewidth=0.9, zorder=4)
+    for x, y, text, bold in points:
+        for dx, dy in candidates:
+            ann = ax.annotate(text, (x, y), xytext=(dx, dy), textcoords="offset points",
+                              fontsize=8, ha="left" if dx > 0 else "right", va="center",
+                              fontweight="bold" if bold else "normal", color=INK,
+                              arrowprops={"arrowstyle": "-", "color": INK_SECONDARY, "lw": 0.6,
+                                          "shrinkA": 0, "shrinkB": 3})
+            box = ann.get_window_extent(renderer).expanded(1.05, 1.15)
+            inside = ax.get_window_extent(renderer)
+            fits = (box.x0 >= inside.x0 and box.x1 <= inside.x1
+                    and box.y0 >= inside.y0 and box.y1 <= inside.y1)
+            if fits and not any(box.overlaps(b) for b in placed):
+                placed.append(box)
+                break
+            ann.remove()
+        else:
+            ann = ax.annotate(text, (x, y), xytext=(6, 6), textcoords="offset points",
+                              fontsize=8, color=INK, fontweight="bold" if bold else "normal")
+            placed.append(ann.get_window_extent(renderer))
