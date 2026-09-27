@@ -1,0 +1,68 @@
+sample_id,group_code,group,read_depth,flagged_atypical
+H1,H,Healthy,58833,False
+H2,H,Healthy,72632,False
+H3,H,Healthy,73730,False
+H4,H,Healthy,73295,False
+H5,H,Healthy,47107,False
+H6,H,Healthy,57306,False
+H7,H,Healthy,64664,True
+H8,H,Healthy,60648,False
+H9,H,Healthy,70209,False
+H10,H,Healthy,71624,False
+H11,H,Healthy,63736,False
+H12,H,Healthy,44786,False
+H13,H,Healthy,59978,False
+H14,H,Healthy,58822,False
+H15,H,Healthy,63568,False
+H16,H,Healthy,71163,False
+P1,P,Periodontitis,71391,False
+P2,P,Periodontitis,68814,False
+P3,P,Periodontitis,64399,False
+P4,P,Periodontitis,71387,False
+P5,P,Periodontitis,70375,False
+P6,P,Periodontitis,65049,False
+P7,P,Periodontitis,58548,True
+P8,P,Periodontitis,71339,False
+P9,P,Periodontitis,49981,True
+P10,P,Periodontitis,54098,False
+P11,P,Periodontitis,71023,False
+P12,P,Periodontitis,73225,False
+P13,P,Periodontitis,69486,False
+P14,P,Periodontitis,71805,False
+P15,P,Periodontitis,68803,False
+P16,P,Periodontitis,65037,False
+P17,P,Periodontitis,72618,False
+P18,P,Periodontitis,64841,True
+T1,T,Hypertension,72038,False
+T2,T,Hypertension,71288,False
+T3,T,Hypertension,70800,False
+T4,T,Hypertension,71042,False
+T5,T,Hypertension,68282,False
+T6,T,Hypertension,63296,False
+T7,T,Hypertension,72095,False
+T8,T,Hypertension,70895,False
+T9,T,Hypertension,66558,True
+T10,T,Hypertension,70936,True
+T11,T,Hypertension,72033,False
+T12,T,Hypertension,71117,False
+T13,T,Hypertension,65309,False
+T14,T,Hypertension,71706,False
+T15,T,Hypertension,70253,False
+T16,T,Hypertension,71700,False
+T17,T,Hypertension,69779,False
+TP1,TP,Hypertension + periodontitis,70786,False
+TP2,TP,Hypertension + periodontitis,70885,False
+TP3,TP,Hypertension + periodontitis,70922,False
+TP4,TP,Hypertension + periodontitis,72334,False
+TP5,TP,Hypertension + periodontitis,59564,False
+TP6,TP,Hypertension + periodontitis,69892,False
+TP7,TP,Hypertension + periodontitis,62703,True
+TP8,TP,Hypertension + periodontitis,71284,False
+TP9,TP,Hypertension + periodontitis,72659,False
+TP10,TP,Hypertension + periodontitis,61877,False
+TP11,TP,Hypertension + periodontitis,72597,False
+TP12,TP,Hypertension + periodontitis,72816,False
+TP13,TP,Hypertension + periodontitis,66212,False
+TP14,TP,Hypertension + periodontitis,71121,False
+TP15,TP,Hypertension + periodontitis,67543,True
+TP16,TP,Hypertension + periodontitis,66744,False

@@ -1,0 +1,47 @@
+{
+  "is_synthetic": false,
+  "n_samples": 67,
+  "n_taxa": 25540,
+  "total_reads": 4503386,
+  "depth_min": 44786,
+  "depth_median": 70253.0,
+  "depth_max": 73730,
+  "sparsity_fraction_zero": 0.9781560093035215,
+  "singleton_taxa": 0,
+  "taxa_in_one_sample_only": 22781,
+  "groups": {
+    "H": {
+      "label": "Healthy",
+      "n": 16,
+      "depth_min": 44786,
+      "depth_median": 63652.0,
+      "depth_max": 73730,
+      "observed_asvs_median": 399.5
+    },
+    "P": {
+      "label": "Periodontitis",
+      "n": 18,
+      "depth_min": 49981,
+      "depth_median": 69150.0,
+      "depth_max": 73225,
+      "observed_asvs_median": 352.0
+    },
+    "T": {
+      "label": "Hypertension",
+      "n": 17,
+      "depth_min": 63296,
+      "depth_median": 70936.0,
+      "depth_max": 72095,
+      "observed_asvs_median": 322.0
+    },
+    "TP": {
+      "label": "Hypertension + periodontitis",
+      "n": 16,
+      "depth_min": 59564,
+      "depth_median": 70835.5,
+      "depth_max": 72816,
+      "observed_asvs_median": 359.5
+    }
+  },
+  "rarefaction_end_slope_asvs_per_1000_reads_median": 0.10631258102193032
+}

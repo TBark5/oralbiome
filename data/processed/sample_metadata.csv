@@ -1,0 +1,68 @@
+sample_id,group_code,group,read_depth
+H1,H,Healthy,58833
+H2,H,Healthy,72632
+H3,H,Healthy,73730
+H4,H,Healthy,73295
+H5,H,Healthy,47107
+H6,H,Healthy,57306
+H7,H,Healthy,64664
+H8,H,Healthy,60648
+H9,H,Healthy,70209
+H10,H,Healthy,71624
+H11,H,Healthy,63736
+H12,H,Healthy,44786
+H13,H,Healthy,59978
+H14,H,Healthy,58822
+H15,H,Healthy,63568
+H16,H,Healthy,71163
+P1,P,Periodontitis,71391
+P2,P,Periodontitis,68814
+P3,P,Periodontitis,64399
+P4,P,Periodontitis,71387
+P5,P,Periodontitis,70375
+P6,P,Periodontitis,65049
+P7,P,Periodontitis,58548
+P8,P,Periodontitis,71339
+P9,P,Periodontitis,49981
+P10,P,Periodontitis,54098
+P11,P,Periodontitis,71023
+P12,P,Periodontitis,73225
+P13,P,Periodontitis,69486
+P14,P,Periodontitis,71805
+P15,P,Periodontitis,68803
+P16,P,Periodontitis,65037
+P17,P,Periodontitis,72618
+P18,P,Periodontitis,64841
+T1,T,Hypertension,72038
+T2,T,Hypertension,71288
+T3,T,Hypertension,70800
+T4,T,Hypertension,71042
+T5,T,Hypertension,68282
+T6,T,Hypertension,63296
+T7,T,Hypertension,72095
+T8,T,Hypertension,70895
+T9,T,Hypertension,66558
+T10,T,Hypertension,70936
+T11,T,Hypertension,72033
+T12,T,Hypertension,71117
+T13,T,Hypertension,65309
+T14,T,Hypertension,71706
+T15,T,Hypertension,70253
+T16,T,Hypertension,71700
+T17,T,Hypertension,69779
+TP1,TP,Hypertension + periodontitis,70786
+TP2,TP,Hypertension + periodontitis,70885
+TP3,TP,Hypertension + periodontitis,70922
+TP4,TP,Hypertension + periodontitis,72334
+TP5,TP,Hypertension + periodontitis,59564
+TP6,TP,Hypertension + periodontitis,69892
+TP7,TP,Hypertension + periodontitis,62703
+TP8,TP,Hypertension + periodontitis,71284
+TP9,TP,Hypertension + periodontitis,72659
+TP10,TP,Hypertension + periodontitis,61877
+TP11,TP,Hypertension + periodontitis,72597
+TP12,TP,Hypertension + periodontitis,72816
+TP13,TP,Hypertension + periodontitis,66212
+TP14,TP,Hypertension + periodontitis,71121
+TP15,TP,Hypertension + periodontitis,67543
+TP16,TP,Hypertension + periodontitis,66744
