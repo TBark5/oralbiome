@@ -9,12 +9,13 @@
 - Phase 5: M6 co-occurrence network, M7 classifiers (nested CV, permutation null, ablation), replication cohort T vs TP.
 - Phase 6: visuals pass (16 figures at 300 dpi, colorblind-safe palette, n on every group figure), figures/CAPTIONS.md.
 - Phase 7: Streamlit dashboard `app.py` (9 tabs, sidebar filters: groups, flagged samples, taxonomic level, top-N); verified with AppTest and a live launch; screenshots in docs/screenshots/
+- Phase 8: 36 pytest tests (formulas, statistics, leakage, synthetic recovery, data layer, dashboard); fresh clone + fresh venv reproduced all outputs byte for byte.
 
 ## In progress
-- Phase 8: pytest suite, synthetic recovery test, fresh-venv check.
+- Phase 9: documentation.
 
 ## Next
-- Phase 9 docs.
+- Final checks and MORNING_REPORT.md.
 
 ## Known bugs
 - None.

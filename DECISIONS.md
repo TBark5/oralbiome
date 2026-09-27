@@ -174,3 +174,24 @@ refer to constants in `src/oralbiome/config.py`.
 - **D41. Replication = T vs TP** through the same code (M1 filtering, alpha,
   Bray-Curtis PERMANOVA/PERMDISP, red-complex test, M7 with its own null).
   Effect sizes for both cohorts are compared in a forest plot.
+
+## Phase 8 - Quality
+
+- **D42. Test strategy.** Formula-level tests check hand-computable cases
+  (Shannon of a uniform community = ln S, Bray-Curtis and Jaccard worked
+  examples, PCoA reproducing Euclidean distances, PERMANOVA pseudo-F equal to
+  the ANOVA F for one-dimensional Euclidean data, BH equal to SciPy's
+  implementation). Behavioural tests check that PERMANOVA/PERMDISP detect a
+  planted shift/spread and ignore noise, that the classifier gives chance AUC
+  on random labels, and that the prevalence filter inside the classifier is
+  learned from training rows only. The dashboard is tested headlessly with
+  Streamlit's AppTest.
+- **D43. Synthetic positive control runs in every `run_all.py`**, even though the
+  real data downloaded, because it shows the pipeline can find planted
+  differences (results/synthetic_validation.json). Pass thresholds in the
+  test: sensitivity >= 50%, false discovery proportion <= 25%, PERMANOVA p <
+  0.05, L1 AUC > 0.8.
+- **D44. Deterministic outputs.** Every random step is seeded (config.SEED = 42),
+  and the gzip header timestamp is fixed, so a rerun reproduces every result
+  and figure byte for byte (checked by rerunning in a fresh clone with a new
+  virtual environment).
