@@ -73,3 +73,31 @@ refer to constants in `src/oralbiome/config.py`.
 - **D16. Stacked bars show the top 8 taxa by overall mean plus "Other".** More
   than 8 colours cannot be told apart reliably, especially by colour-blind
   readers.
+
+## Phase 3 - M3 alpha and M4 beta diversity
+
+- **D17. Alpha metrics.** Shannon uses the natural log. "Simpson" is reported as
+  Gini-Simpson (1 - sum p^2), so higher means more diverse, like the others.
+  Shannon is the pre-declared primary metric (HYPOTHESIS.md). BH correction is
+  applied across the four metrics inside each analysis.
+- **D18. Effect size for Mann-Whitney = rank-biserial r** (equal to Cliff's
+  delta), with a 2,000-resample percentile bootstrap CI resampled within each
+  group. Positive r means higher in periodontitis.
+- **D19. Alpha sensitivity analyses:** (a) feature (ASV) level instead of genus,
+  (b) genus level without the flagged samples. The primary result is not
+  replaced by either one.
+- **D20. Beta diversity input.** Bray-Curtis uses relative abundances of the 354
+  prevalence-filtered genera. Jaccard uses their presence/absence. Bray-Curtis
+  is primary (pre-declared).
+- **D21. 999 permutations for PERMANOVA and PERMDISP.** The smallest possible
+  p-value is 0.001, and both tests together run in about 3 s.
+- **D22. PERMDISP p-value** comes from permuting group labels on the
+  distance-to-centroid values. This is slightly simpler than vegan's
+  residual permutation, but for a two-group, one-factor design the two give
+  very similar answers. Negative eigenvalues from Bray-Curtis are handled as in
+  Anderson (2006): their axes subtract from squared distances.
+- **D23. NMDS** uses scikit-learn non-metric MDS on the precomputed distance
+  matrix with 8 random starts (seed 42), and reports Kruskal stress-1.
+- **D24. Ellipses** are 95% normal-theory data ellipses (chi-square, 2 df) fitted
+  to each group's points. They are for visual guidance only; the tests are
+  PERMANOVA and PERMDISP.

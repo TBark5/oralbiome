@@ -28,5 +28,101 @@
     "core_genera_Healthy": 33,
     "core_genera_Periodontitis": 11,
     "core_genera_shared_by_all_groups": 10
+  },
+  "m3": {
+    "shannon": {
+      "median_reference": 2.8843837762229443,
+      "median_disease": 3.085881267696281,
+      "p": 0.7958091685190174,
+      "q_bh_within_analysis": 0.7958091685190174,
+      "rank_biserial": 0.05555555555555555,
+      "rank_biserial_ci_low": -0.3472222222222222,
+      "rank_biserial_ci_high": 0.4513888888888889
+    },
+    "simpson": {
+      "median_reference": 0.8992129710943471,
+      "median_disease": 0.9150151883915325,
+      "p": 0.23390371367256635,
+      "q_bh_within_analysis": 0.31187161823008847,
+      "rank_biserial": 0.24305555555555555,
+      "rank_biserial_ci_low": -0.1597222222222222,
+      "rank_biserial_ci_high": 0.625
+    },
+    "observed": {
+      "median_reference": 179.5,
+      "median_disease": 140.0,
+      "p": 0.1333536827195035,
+      "q_bh_within_analysis": 0.266707365439007,
+      "rank_biserial": -0.3055555555555556,
+      "rank_biserial_ci_low": -0.6666666666666666,
+      "rank_biserial_ci_high": 0.1111111111111111
+    },
+    "pielou": {
+      "median_reference": 0.5610207801718238,
+      "median_disease": 0.6396873703625144,
+      "p": 0.036847628270466774,
+      "q_bh_within_analysis": 0.1473905130818671,
+      "rank_biserial": 0.4236111111111111,
+      "rank_biserial_ci_low": 0.027777777777777776,
+      "rank_biserial_ci_high": 0.7777777777777778
+    }
+  },
+  "m4": {
+    "bray_curtis": {
+      "permanova": {
+        "pseudo_F": 2.8559007066737454,
+        "R2": 0.08193449742433238,
+        "p": 0.015,
+        "n_perm": 999,
+        "n": 34
+      },
+      "permdisp": {
+        "F": 3.766335496372921,
+        "p": 0.065,
+        "n_perm": 999,
+        "mean_distance_to_centroid": {
+          "H": 0.3656920823485395,
+          "P": 0.4468404288839204
+        }
+      },
+      "permanova_excluding_flagged": {
+        "pseudo_F": 3.7684880494169852,
+        "R2": 0.11862346245609712,
+        "p": 0.002,
+        "n_perm": 999,
+        "n": 30
+      },
+      "pcoa_explained_axis1": 0.34870931932071464,
+      "pcoa_explained_axis2": 0.15473317964902444,
+      "nmds_stress": 0.12938702599294485
+    },
+    "jaccard": {
+      "permanova": {
+        "pseudo_F": 1.966542689543794,
+        "R2": 0.057896463220237344,
+        "p": 0.072,
+        "n_perm": 999,
+        "n": 34
+      },
+      "permdisp": {
+        "F": 0.020348529129378318,
+        "p": 0.896,
+        "n_perm": 999,
+        "mean_distance_to_centroid": {
+          "H": 0.41433185978847414,
+          "P": 0.4181770826785476
+        }
+      },
+      "permanova_excluding_flagged": {
+        "pseudo_F": 3.018127992236776,
+        "R2": 0.09730206777766066,
+        "p": 0.007,
+        "n_perm": 999,
+        "n": 30
+      },
+      "pcoa_explained_axis1": 0.37783518476878836,
+      "pcoa_explained_axis2": 0.0701926243777136,
+      "nmds_stress": 0.10672790036652868
+    }
   }
 }

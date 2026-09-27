@@ -96,3 +96,33 @@ def save(fig: plt.Figure, name: str, out_dir: Path | None = None) -> Path:
     fig.savefig(path, dpi=DPI)
     plt.close(fig)
     return path
+
+
+def box_with_points(ax: plt.Axes, values: dict[str, "np.ndarray"],
+                    hollow: dict[str, "np.ndarray"] | None = None) -> None:
+    """Boxplot per group with every sample drawn as a jittered point.
+
+    ``values`` maps group label -> values. ``hollow`` optionally maps group
+    label -> boolean mask of points to draw as open circles (flagged samples).
+    Tick labels include the group size.
+    """
+    import numpy as np
+
+    rng = np.random.default_rng(config.SEED)
+    labels = list(values)
+    for i, label in enumerate(labels):
+        v = np.asarray(values[label], dtype=float)
+        color = GROUP_COLORS.get(label, NEUTRAL_COLOR)
+        ax.boxplot(v, positions=[i], widths=0.55, showfliers=False, patch_artist=True,
+                   boxprops={"facecolor": color + "22", "edgecolor": color},
+                   medianprops={"color": color, "linewidth": 2},
+                   whiskerprops={"color": color}, capprops={"color": color})
+        jitter = i + rng.uniform(-0.13, 0.13, len(v))
+        mask = np.zeros(len(v), bool) if hollow is None else np.asarray(hollow[label], bool)
+        ax.scatter(jitter[~mask], v[~mask], s=24, color=color, edgecolor="white",
+                   linewidth=0.5, zorder=3)
+        ax.scatter(jitter[mask], v[mask], s=26, facecolor="white", edgecolor=color,
+                   linewidth=1.2, zorder=3)
+    ax.set_xticks(range(len(labels)))
+    ax.set_xticklabels([f"{lab}\n(n={len(values[lab])})" for lab in labels])
+    ax.grid(axis="x", visible=False)

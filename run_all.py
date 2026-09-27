@@ -14,7 +14,7 @@ from pathlib import Path
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-from oralbiome import composition, config, data, preprocessing, qc, style  # noqa: E402
+from oralbiome import alpha, beta_run, composition, config, data, preprocessing, qc, style  # noqa: E402
 
 
 def step(name: str):
@@ -55,6 +55,14 @@ def main() -> None:
 
     done = step("M2 composition")
     summary["m2"] = composition.run(pre)
+    done()
+
+    done = step("M3 alpha diversity")
+    summary["m3"] = alpha.run(pre)
+    done()
+
+    done = step("M4 beta diversity")
+    summary["m4"] = beta_run.run(pre)
     done()
 
     (config.RESULTS / "summary.json").write_text(json.dumps(summary, indent=2, default=str))
