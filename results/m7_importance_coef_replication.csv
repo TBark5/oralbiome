@@ -1,0 +1,340 @@
+,mean,sd,selection_frequency
+Candidatus_Solibacter,0.2836706991448114,0.5264118180785541,0.3
+Unclassified Lachnospiraceae,0.2798811203898854,0.595513694358236,0.32
+Unclassified Rokubacteriales,-0.25276936168966413,0.47608034982933745,0.3
+Paenibacillus,-0.19935869617914923,0.4032240869827307,0.38
+Bacteroides,0.1676649323319983,0.3955302784127115,0.22
+Corynebacterium,0.1389349483776275,0.4086476063505094,0.16
+Stomatobaculum,0.1316230774556927,0.3235608172714178,0.26
+Faecalibaculum,-0.1260814278310041,0.3846429733663652,0.16
+Acidothermus,-0.12029300799300904,0.29227139592991025,0.22
+Methyloversatilis,-0.10662713268359099,0.36196575968017036,0.14
+Unclassified Absconditabacteriales__SR1,0.09978910792907651,0.3100968006547134,0.2
+Unclassified SR1_bacterium_oral_taxon_875,-0.08973762195249815,0.30017320466560854,0.18
+Unclassified KF_JG30_B3,-0.08400483057505533,0.29812136714735576,0.1
+Odoribacter,0.07751579148491922,0.23882963563971965,0.2
+Desulfomicrobium,0.06874418979759545,0.18731825205866068,0.16
+Klebsiella,-0.06223341871125182,0.20263384775404794,0.12
+Unclassified Bacilli,0.06129113372429972,0.21692436226991402,0.1
+mle1_7,-0.04523114934154018,0.229764545130686,0.06
+[Eubacterium]_saphenum_group,0.04444827033436063,0.1739427972200055,0.12
+Streptococcus,-0.04288159617416474,0.17189542097620245,0.08
+P3OB_42,-0.042313956343478266,0.12914886133527229,0.14
+Unclassified TRA3_20,-0.03797398035037645,0.18743792957518948,0.06
+Unclassified Gammaproteobacteria,0.03620230020719942,0.1448671636923373,0.08
+Olsenella,0.03551631004784093,0.1314497667256942,0.08
+IMCC26207,-0.03423235587415535,0.13497754828537603,0.08
+Eikenella,0.033859858958885054,0.22469214726729345,0.04
+Pedomicrobium,-0.03253308406916454,0.2219866230554221,0.04
+Endozoicomonas,-0.0303075967306653,0.13475925907595684,0.06
+Cellvibrio,-0.02851727999856122,0.09838370750097411,0.08
+Lachnoclostridium,0.02757096106315224,0.13683332778960158,0.04
+Actinobacillus,-0.025474950624576644,0.11963449041686074,0.08
+[Ruminococcus]_gnavus_group,-0.02519388545386335,0.17814767248863891,0.02
+Unclassified Saccharimonadales,0.024055287142214467,0.14349677267736108,0.06
+Unclassified Ktedonobacteraceae,-0.022850894303697307,0.09860849004246258,0.06
+Methanoculleus,-0.0211116495461175,0.14928190556093582,0.02
+Acholeplasma,0.020922116754488948,0.10541071669678105,0.06
+Cetobacterium,0.020469710444763412,0.094580524223986,0.06
+[Eubacterium]_nodatum_group,0.0200899127310405,0.1420571352556469,0.02
+Arenimonas,-0.020019634689430334,0.11255235180845195,0.04
+Phaselicystis,-0.020017567542571696,0.1023957244009949,0.08
+Unclassified Actinomarinales,-0.019636231549868762,0.11947981324015818,0.06
+Enhydrobacter,0.015839620641384222,0.07840181144127531,0.04
+Unclassified Caldilineaceae,-0.015441349361398855,0.05611320990087963,0.12
+Unclassified Candidatus_Gracilibacteria_bacterium_HOT_871,0.015188548167365177,0.07595814735903862,0.04
+Nesterenkonia,-0.014598933439556969,0.07475469111847718,0.04
+Rikenellaceae_RC9_gut_group,-0.014268096945257953,0.10089068104618963,0.02
+Unclassified Bacteroidia,-0.013955336605838788,0.09016699697736072,0.04
+UCG_005,-0.01372739166821872,0.06898222765556629,0.04
+Unclassified Sporichthyaceae,-0.012102142448280733,0.07059638019065342,0.06
+Megasphaera,0.011486705189015598,0.08122327132643634,0.02
+Ensifer,-0.010269720178160344,0.06433616837028133,0.04
+Unclassified Acidimicrobiia,-0.00926729454185,0.038355465793757516,0.06
+Xanthomonas,0.009151754046545786,0.04968427787778803,0.04
+Unclassified Sandaracinaceae,0.009034929535529831,0.06388659942115768,0.02
+Luteolibacter,-0.008781126408680435,0.03610170024365997,0.08
+Fusobacterium,-0.008596038861454214,0.058192887142286494,0.04
+Hyphomicrobium,-0.008310550911017699,0.05876446904576655,0.02
+Unclassified Subgroup_7,-0.008189871690974064,0.0419113788091951,0.04
+Phocaeicola,0.007895382683140039,0.05582878635311159,0.02
+Oscillibacter,-0.007872365222189372,0.055666028325872474,0.02
+Sphingomonas,-0.007639873728887114,0.054022065211050324,0.02
+[Eubacterium]_brachy_group,0.0073848184230053,0.03714960392533042,0.04
+Unclassified SAR202_clade,-0.007177715133364013,0.035846284985420605,0.06
+Halomonas,0.007003902466424425,0.02804888122405913,0.06
+Roseburia,0.006417817912270664,0.04538082566187077,0.02
+[Ruminococcus]_torques_group,-0.006082819659612151,0.032301918790640156,0.04
+Alloprevotella,-0.006013700194462049,0.042523281875269756,0.02
+Planifilum,-0.005717803333110504,0.040430975103334814,0.02
+Unclassified Xanthobacteraceae,-0.004034624761291309,0.028529105282522404,0.02
+Unclassified Vicinamibacteraceae,0.0038713205446692096,0.027374370092823973,0.02
+Collinsella,0.002802030849858442,0.01981335015028809,0.02
+Filifactor,0.002694471925225449,0.01905279370043687,0.02
+Romboutsia,0.002442238817088621,0.017269236288403763,0.02
+Unclassified Gemmataceae,-0.002301801631107495,0.016276195423023655,0.02
+Kingella,-0.0020355695529826047,0.014393650344908686,0.02
+Brevundimonas,0.0017072227595412923,0.012071887902676586,0.02
+Unclassified Clostridiales_bacterium_oral_taxon_075,0.0016946803363579294,0.011983199577821912,0.02
+Unclassified Vicinamibacterales,-0.0016201487739844391,0.011456181846154684,0.02
+Unclassified Selenomonadaceae,-0.0015519377155006706,0.010973856826096832,0.02
+Unclassified Firmicutes,-0.0014282219217577475,0.010099054059141856,0.02
+Alphaproteobacteria_bacterium_canine_oral_taxon_081,-0.0013464050491068904,0.009520521404472886,0.02
+Unclassified JG30_KF_CM45,0.0010044794630071478,0.00710274239854976,0.02
+Solobacterium,0.000976682414825687,0.006906187585888959,0.02
+Allorhizobium_Neorhizobium_Pararhizobium_Rhizobium,0.0008736508056013625,0.006177644090298137,0.02
+Unclassified Subgroup_2,-0.000582766162898569,0.004120779056316423,0.02
+Unclassified [Eubacterium]_coprostanoligenes_group,-0.0005526780634947264,0.003908024065101703,0.02
+Unclassified Latescibacteraceae,0.0004609343614531875,0.003259298126654401,0.02
+Subgroup_10,0.0003906708277586033,0.00252510436944447,0.04
+Unclassified Anaerolineaceae,0.00034209460509421115,0.002418974150694507,0.02
+Pseudarthrobacter,-0.0003258154480639614,0.0023038631274136046,0.02
+Dubosiella,0.0,0.0,0.0
+Ellin6067,0.0,0.0,0.0
+Unclassified Methylococcaceae,0.0,0.0,0.0
+Unclassified Micrococcales,0.0,0.0,0.0
+Unclassified Pseudomonadales,0.0,0.0,0.0
+Unclassified Rhizobiales,0.0,0.0,0.0
+Unclassified Roseiflexaceae,0.0,0.0,0.0
+Unclassified Saprospiraceae,0.0,0.0,0.0
+Unclassified Subgroup_17,0.0,0.0,0.0
+Unclassified WCHB1_41,0.0,0.0,0.0
+Unclassified env.OPS_17,0.0,0.0,0.0
+Vagococcus,0.0,0.0,0.0
+Vibrio,0.0,0.0,0.0
+Megamonas,0.0,0.0,0.0
+Cyanobium_PCC_6307,0.0,0.0,0.0
+[Ruminococcus]_gauvreauii_group,0.0,0.0,0.0
+Haemophilus,0.0,0.0,0.0
+Haliangium,0.0,0.0,0.0
+Helicobacter,0.0,0.0,0.0
+Johnsonella,0.0,0.0,0.0
+Lachnoanaerobaculum,0.0,0.0,0.0
+Lachnospiraceae_NK4A136_group,0.0,0.0,0.0
+Lactobacillus,0.0,0.0,0.0
+Lautropia,0.0,0.0,0.0
+Lentimicrobium,0.0,0.0,0.0
+Leptotrichia,0.0,0.0,0.0
+Ligilactobacillus,0.0,0.0,0.0
+Limosilactobacillus,0.0,0.0,0.0
+Listeria,0.0,0.0,0.0
+Luteimonas,0.0,0.0,0.0
+Lysobacter,0.0,0.0,0.0
+Massilia,0.0,0.0,0.0
+Monoglobus,0.0,0.0,0.0
+Moraxella,0.0,0.0,0.0
+Muribaculum,0.0,0.0,0.0
+Mycobacterium,0.0,0.0,0.0
+Mycoplasma,0.0,0.0,0.0
+NK4A214_group,0.0,0.0,0.0
+Neisseria,0.0,0.0,0.0
+Niastella,0.0,0.0,0.0
+Nitrospira,0.0,0.0,0.0
+Nocardioides,0.0,0.0,0.0
+Oceanivirga,0.0,0.0,0.0
+Oribacterium,0.0,0.0,0.0
+Parabacteroides,0.0,0.0,0.0
+Paracoccus,0.0,0.0,0.0
+Parasutterella,0.0,0.0,0.0
+Parvimonas,0.0,0.0,0.0
+Paucibacter,0.0,0.0,0.0
+Pedobacter,0.0,0.0,0.0
+Peptococcus,0.0,0.0,0.0
+Peptostreptococcus,0.0,0.0,0.0
+Phascolarctobacterium,0.0,0.0,0.0
+Phenylobacterium,0.0,0.0,0.0
+Photobacterium,0.0,0.0,0.0
+Porphyromonas,0.0,0.0,0.0
+Prevotella,0.0,0.0,0.0
+Prevotella_7,0.0,0.0,0.0
+Prevotella_9,0.0,0.0,0.0
+Prevotellaceae_NK3B31_group,0.0,0.0,0.0
+Prevotellaceae_UCG_001,0.0,0.0,0.0
+Prevotellaceae_UCG_004,0.0,0.0,0.0
+Prochlorococcus_MIT9313,0.0,0.0,0.0
+Pseudolabrys,0.0,0.0,0.0
+Pseudomonas,0.0,0.0,0.0
+Pseudopropionibacterium,0.0,0.0,0.0
+Pseudoxanthomonas,0.0,0.0,0.0
+RB41,0.0,0.0,0.0
+Rhodanobacter,0.0,0.0,0.0
+Rhodococcus,0.0,0.0,0.0
+Rothia,0.0,0.0,0.0
+Ruminococcus,0.0,0.0,0.0
+SM1A02,0.0,0.0,0.0
+Salmonella,0.0,0.0,0.0
+Selenomonas,0.0,0.0,0.0
+Serratia,0.0,0.0,0.0
+Sodalis,0.0,0.0,0.0
+Solirubrobacter,0.0,0.0,0.0
+Sphingobium,0.0,0.0,0.0
+Sphingopyxis,0.0,0.0,0.0
+Staphylococcus,0.0,0.0,0.0
+Stenotrophobacter,0.0,0.0,0.0
+Stenotrophomonas,0.0,0.0,0.0
+Streptomyces,0.0,0.0,0.0
+Subdoligranulum,0.0,0.0,0.0
+Synechococcus_CC9902,0.0,0.0,0.0
+TM7a,0.0,0.0,0.0
+TM7x,0.0,0.0,0.0
+Tannerella,0.0,0.0,0.0
+Treponema,0.0,0.0,0.0
+Unclassified Acidobacteriales,0.0,0.0,0.0
+Unclassified Actinobacteria,0.0,0.0,0.0
+Unclassified Actinobacteriota,0.0,0.0,0.0
+Unclassified Actinomycetaceae,0.0,0.0,0.0
+Unclassified Alphaproteobacteria,0.0,0.0,0.0
+Unclassified Anaerolineae,0.0,0.0,0.0
+Candidatus_Udaeobacter,0.0,0.0,0.0
+Capnocytophaga,0.0,0.0,0.0
+Cardiobacterium,0.0,0.0,0.0
+Catonella,0.0,0.0,0.0
+Christensenellaceae_R_7_group,0.0,0.0,0.0
+Chryseobacterium,0.0,0.0,0.0
+Colidextribacter,0.0,0.0,0.0
+Comamonas,0.0,0.0,0.0
+Cutibacterium,0.0,0.0,0.0
+Defluviitaleaceae_UCG_011,0.0,0.0,0.0
+Desulfovibrio,0.0,0.0,0.0
+Unclassified Anaerovoracaceae,0.0,0.0,0.0
+Unclassified Azospirillales,0.0,0.0,0.0
+Unclassified Bacteria,0.0,0.0,0.0
+Unclassified CCD24,0.0,0.0,0.0
+Unclassified Candidatus_Saccharibacteria_bacterium_UB2523,0.0,0.0,0.0
+Unclassified Chloroflexi,0.0,0.0,0.0
+Unclassified Clostridia,0.0,0.0,0.0
+Unclassified Clostridia_UCG_014,0.0,0.0,0.0
+Unclassified Clostridia_vadinBB60_group,0.0,0.0,0.0
+Unclassified Clostridiales_bacterium_feline_oral_taxon_148,0.0,0.0,0.0
+Sphingobacterium,0.0,0.0,0.0
+Unclassified Cyanobacteriales,0.0,0.0,0.0
+Unclassified Elsterales,0.0,0.0,0.0
+Unclassified Gaiellales,0.0,0.0,0.0
+Unclassified Candidatus_Kaiserbacteria,0.0,0.0,0.0
+Unclassified Gemmatimonadaceae,0.0,0.0,0.0
+Unclassified IMCC26256,0.0,0.0,0.0
+Unclassified Ilumatobacteraceae,0.0,0.0,0.0
+Unclassified Desulfobacterota,0.0,0.0,0.0
+Promicromonospora,0.0,0.0,0.0
+Unclassified Limnochordaceae,0.0,0.0,0.0
+Unclassified Micropepsaceae,0.0,0.0,0.0
+Unclassified Microscillaceae,0.0,0.0,0.0
+Unclassified Microtrichales,0.0,0.0,0.0
+Unclassified Muribaculaceae,0.0,0.0,0.0
+Unclassified Nitrososphaeraceae,0.0,0.0,0.0
+Unclassified Opitutaceae,0.0,0.0,0.0
+Unclassified Oscillospiraceae,0.0,0.0,0.0
+Unclassified Prevotellaceae,0.0,0.0,0.0
+Unclassified RF39,0.0,0.0,0.0
+Unclassified Rhodospirillales,0.0,0.0,0.0
+Unclassified Ruminococcaceae,0.0,0.0,0.0
+Unclassified SBR1031,0.0,0.0,0.0
+Unclassified SC_I_84,0.0,0.0,0.0
+Enterobacter,0.0,0.0,0.0
+Enterococcus,0.0,0.0,0.0
+Enterorhabdus,0.0,0.0,0.0
+Escherichia_Shigella,0.0,0.0,0.0
+F0058,0.0,0.0,0.0
+F0332,0.0,0.0,0.0
+Faecalibacterium,0.0,0.0,0.0
+Devosia,0.0,0.0,0.0
+Flavisolibacter,0.0,0.0,0.0
+Flavobacterium,0.0,0.0,0.0
+Fretibacterium,0.0,0.0,0.0
+Fusibacter,0.0,0.0,0.0
+Gaiella,0.0,0.0,0.0
+Gemella,0.0,0.0,0.0
+Granulicatella,0.0,0.0,0.0
+Unclassified SJA_15,0.0,0.0,0.0
+Unclassified Saccharimonadaceae,0.0,0.0,0.0
+Candidatus_Koribacter,0.0,0.0,0.0
+Unclassified Eggerthellaceae,0.0,0.0,0.0
+Unclassified UCG_010,0.0,0.0,0.0
+Agathobacter,0.0,0.0,0.0
+UCG_004,0.0,0.0,0.0
+Unclassified candidate_division_SR1_bacterium_MGEHA,0.0,0.0,0.0
+Veillonella,0.0,0.0,0.0
+Vicinamibacter,0.0,0.0,0.0
+[Eubacterium]_yurii_group,0.0,0.0,0.0
+Acidovorax,0.0,0.0,0.0
+Aeriscardovia,0.0,0.0,0.0
+Aeromonas,0.0,0.0,0.0
+Altererythrobacter,0.0,0.0,0.0
+Anaerostipes,0.0,0.0,0.0
+Anaerotruncus,0.0,0.0,0.0
+Bdellovibrio,0.0,0.0,0.0
+Blastococcus,0.0,0.0,0.0
+Chitinophaga,0.0,0.0,0.0
+Clostridium_sensu_stricto_1,0.0,0.0,0.0
+Conexibacter,0.0,0.0,0.0
+Coxiella,0.0,0.0,0.0
+Gemmatimonas,0.0,0.0,0.0
+Halocella,0.0,0.0,0.0
+Lactococcus,0.0,0.0,0.0
+Atopobium,0.0,0.0,0.0
+Limnochorda,0.0,0.0,0.0
+MND1,0.0,0.0,0.0
+Marinobacter,0.0,0.0,0.0
+Methylobacterium_Methylorubrum,0.0,0.0,0.0
+Morganella,0.0,0.0,0.0
+Mucispirillum,0.0,0.0,0.0
+Peptoniphilus,0.0,0.0,0.0
+Phyllobacterium,0.0,0.0,0.0
+Pseudonocardia,0.0,0.0,0.0
+Ramlibacter,0.0,0.0,0.0
+Unclassified LWQ8,0.0,0.0,0.0
+Terrimonas,0.0,0.0,0.0
+Turicibacter,0.0,0.0,0.0
+Unclassified 67_14,0.0,0.0,0.0
+Unclassified A4b,0.0,0.0,0.0
+Unclassified AKYG1722,0.0,0.0,0.0
+Unclassified Ardenticatenales,0.0,0.0,0.0
+Unclassified Bacteroidales,0.0,0.0,0.0
+Unclassified Burkholderiales,0.0,0.0,0.0
+Unclassified Chitinophagaceae,0.0,0.0,0.0
+Unclassified Erysipelotrichaceae,0.0,0.0,0.0
+Lachnospiraceae_FCS020_group,0.0,0.0,0.0
+Unclassified Isosphaeraceae,0.0,0.0,0.0
+Unclassified Longimicrobiaceae,0.0,0.0,0.0
+AKYG587,0.0,0.0,0.0
+Acidibacter,0.0,0.0,0.0
+Acinetobacter,0.0,0.0,0.0
+Actinomyces,0.0,0.0,0.0
+Aeromicrobium,0.0,0.0,0.0
+Aggregatibacter,0.0,0.0,0.0
+Akkermansia,0.0,0.0,0.0
+Alistipes,0.0,0.0,0.0
+Lapillicoccus,0.0,0.0,0.0
+Prevotellaceae_UCG_003,0.0,0.0,0.0
+Lachnospiraceae_NK3A20_group,0.0,0.0,0.0
+28_4,0.0,0.0,0.0
+Anaeromyxobacter,0.0,0.0,0.0
+Clade_Ia,0.0,0.0,0.0
+Cupriavidus,0.0,0.0,0.0
+Unclassified S085,0.0,0.0,0.0
+Pseudoalteromonas,0.0,0.0,0.0
+Roseomonas,0.0,0.0,0.0
+Sorangium,0.0,0.0,0.0
+Sphingosinicella,0.0,0.0,0.0
+Tyzzerella,0.0,0.0,0.0
+Unclassified Desulfovibrionaceae,0.0,0.0,0.0
+Unclassified F082,0.0,0.0,0.0
+Anaeroglobus,0.0,0.0,0.0
+Arthrobacter,0.0,0.0,0.0
+Novosphingobium,0.0,0.0,0.0
+Nordella,0.0,0.0,0.0
+Abiotrophia,0.0,0.0,0.0
+Bacillus,0.0,0.0,0.0
+Bergeyella,0.0,0.0,0.0
+Bifidobacterium,0.0,0.0,0.0
+Blautia,0.0,0.0,0.0
+Bradyrhizobium,0.0,0.0,0.0
+Dialister,0.0,0.0,0.0
+Bryobacter,0.0,0.0,0.0
+Burkholderia_Caballeronia_Paraburkholderia,0.0,0.0,0.0
+Butyrivibrio,0.0,0.0,0.0
+Caenimonas,0.0,0.0,0.0
+Campylobacter,0.0,0.0,0.0
+Candidatus_Saccharimonas,0.0,0.0,0.0
+Butyricicoccus,0.0,0.0,0.0
+Providencia,0.0,0.0,0.0

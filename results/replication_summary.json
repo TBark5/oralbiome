@@ -1,0 +1,193 @@
+{
+  "n": {
+    "T": 17,
+    "TP": 16
+  },
+  "permanova_bray_curtis": {
+    "pseudo_F": 1.001891956450659,
+    "R2": 0.031307272639194896,
+    "p": 0.402,
+    "n_perm": 999,
+    "n": 33
+  },
+  "permdisp_bray_curtis": {
+    "F": 0.31363946732917775,
+    "p": 0.576,
+    "n_perm": 999,
+    "mean_distance_to_centroid": {
+      "T": 0.39285521595557293,
+      "TP": 0.4225248369428415
+    }
+  },
+  "alpha": {
+    "shannon": {
+      "p": 0.28794238849112574,
+      "rank_biserial": 0.22058823529411764
+    },
+    "simpson": {
+      "p": 0.17675260335753484,
+      "rank_biserial": 0.27941176470588236
+    },
+    "observed": {
+      "p": 0.7456861654460873,
+      "rank_biserial": 0.06985294117647059
+    },
+    "pielou": {
+      "p": 0.2139578253523272,
+      "rank_biserial": 0.25735294117647056
+    }
+  },
+  "classifier": {
+    "L1 logistic regression": {
+      "auc_mean_over_repeats": 0.48033088235294114,
+      "auc_repeat_range": [
+        0.3897058823529412,
+        0.5772058823529411
+      ],
+      "auc_pooled_oof": 0.5183823529411765,
+      "auc_bootstrap_ci95": [
+        0.3161764705882353,
+        0.7242647058823529
+      ],
+      "null_auc_mean": 0.48787377450980385,
+      "null_auc_95th_percentile": 0.6479166666666667,
+      "permutation_p": 0.49504950495049505,
+      "n_permutations": 100,
+      "auc_excluding_flagged_mean_5_repeats": 0.5352380952380952,
+      "n_excluding_flagged": 29
+    },
+    "Random forest": {
+      "auc_mean_over_repeats": 0.5251838235294117,
+      "auc_repeat_range": [
+        0.4411764705882353,
+        0.625
+      ],
+      "auc_pooled_oof": 0.5551470588235294,
+      "auc_bootstrap_ci95": [
+        0.3529411764705882,
+        0.75
+      ],
+      "null_auc_mean": 0.47879289215686277,
+      "null_auc_95th_percentile": 0.6987132352941176,
+      "permutation_p": 0.37623762376237624,
+      "n_permutations": 100,
+      "auc_excluding_flagged_mean_5_repeats": 0.6299999999999999,
+      "n_excluding_flagged": 29
+    }
+  },
+  "classifier_ablation": {
+    "removed": "Candidatus_Solibacter",
+    "L1 logistic regression": 0.47720588235294115,
+    "Random forest": 0.49963235294117647
+  },
+  "effect_sizes": [
+    {
+      "cohort": "primary",
+      "measure": "alpha: Shannon index (H')",
+      "r": 0.0556,
+      "ci_low": -0.3472,
+      "ci_high": 0.4514,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "primary",
+      "measure": "alpha: Observed richness (taxa)",
+      "r": -0.3056,
+      "ci_low": -0.6667,
+      "ci_high": 0.1111,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "primary",
+      "measure": "alpha: Pielou's evenness (J')",
+      "r": 0.4236,
+      "ci_low": 0.0278,
+      "ci_high": 0.7778,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "primary",
+      "measure": "Porphyromonas gingivalis",
+      "r": 0.5972,
+      "ci_low": 0.2847,
+      "ci_high": 0.8681,
+      "p": 0.0032,
+      "q_bh_across_targets": 0.0048
+    },
+    {
+      "cohort": "primary",
+      "measure": "Tannerella forsythia",
+      "r": 0.5069,
+      "ci_low": 0.1875,
+      "ci_high": 0.8056,
+      "p": 0.0124,
+      "q_bh_across_targets": 0.0124
+    },
+    {
+      "cohort": "primary",
+      "measure": "Treponema denticola",
+      "r": 0.6528,
+      "ci_low": 0.3403,
+      "ci_high": 0.9097,
+      "p": 0.0013,
+      "q_bh_across_targets": 0.0038
+    },
+    {
+      "cohort": "replication",
+      "measure": "alpha: Shannon index (H')",
+      "r": 0.2206,
+      "ci_low": -0.1985,
+      "ci_high": 0.6103,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "replication",
+      "measure": "alpha: Observed richness (taxa)",
+      "r": 0.0699,
+      "ci_low": -0.331,
+      "ci_high": 0.4597,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "replication",
+      "measure": "alpha: Pielou's evenness (J')",
+      "r": 0.2574,
+      "ci_low": -0.1399,
+      "ci_high": 0.6397,
+      "p": NaN,
+      "q_bh_across_targets": NaN
+    },
+    {
+      "cohort": "replication",
+      "measure": "Porphyromonas gingivalis",
+      "r": 0.2794,
+      "ci_low": -0.1176,
+      "ci_high": 0.6618,
+      "p": 0.1768,
+      "q_bh_across_targets": 0.5303
+    },
+    {
+      "cohort": "replication",
+      "measure": "Tannerella forsythia",
+      "r": 0.0662,
+      "ci_low": -0.3529,
+      "ci_high": 0.4706,
+      "p": 0.7595,
+      "q_bh_across_targets": 0.7595
+    },
+    {
+      "cohort": "replication",
+      "measure": "Treponema denticola",
+      "r": 0.1176,
+      "ci_low": -0.2868,
+      "ci_high": 0.5074,
+      "p": 0.5766,
+      "q_bh_across_targets": 0.7595
+    }
+  ]
+}

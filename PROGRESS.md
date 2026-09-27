@@ -6,12 +6,13 @@
 - Phase 2: M1 preprocessing, M2 composition + core microbiome.
 - Phase 3: M3 alpha diversity (+2 sensitivity analyses), M4 beta diversity (Bray-Curtis/Jaccard, PCoA, NMDS, PERMANOVA, PERMDISP, heatmap).
 - Phase 4: M5 differential abundance (genus scan + BH, permutation null, pre-declared red-complex species test, high-richness diagnostic).
+- Phase 5: M6 co-occurrence network, M7 classifiers (nested CV, permutation null, ablation), replication cohort T vs TP.
 
 ## In progress
-- Phase 5: M6 network, M7 classifier.
+- Phase 6: visuals pass + figures/CAPTIONS.md.
 
 ## Next
-- Phase 6 visuals, Phase 7 app, Phase 8 tests, Phase 9 docs.
+- Phase 7 app, Phase 8 tests, Phase 9 docs.
 
 ## Known bugs
 - None.

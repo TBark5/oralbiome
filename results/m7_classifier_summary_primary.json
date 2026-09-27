@@ -1,0 +1,54 @@
+{
+  "L1 logistic regression": {
+    "auc_mean_over_repeats": 0.9170138888888889,
+    "auc_repeat_range": [
+      0.8611111111111112,
+      0.951388888888889
+    ],
+    "auc_pooled_oof": 0.9201388888888888,
+    "auc_bootstrap_ci95": [
+      0.8090277777777779,
+      1.0
+    ],
+    "null_auc_mean": 0.4931828703703703,
+    "null_auc_95th_percentile": 0.6866319444444444,
+    "permutation_p": 0.009900990099009901,
+    "n_permutations": 100,
+    "auc_excluding_flagged_mean_5_repeats": 0.9315555555555555,
+    "n_excluding_flagged": 30
+  },
+  "Random forest": {
+    "auc_mean_over_repeats": 0.7897569444444444,
+    "auc_repeat_range": [
+      0.7361111111111112,
+      0.8368055555555555
+    ],
+    "auc_pooled_oof": 0.810763888888889,
+    "auc_bootstrap_ci95": [
+      0.6493055555555556,
+      0.9375
+    ],
+    "null_auc_mean": 0.4975636574074075,
+    "null_auc_95th_percentile": 0.6810185185185186,
+    "permutation_p": 0.009900990099009901,
+    "n_permutations": 100,
+    "auc_excluding_flagged_mean_5_repeats": 0.8702222222222222,
+    "n_excluding_flagged": 30
+  },
+  "ablation_without_top_genus": {
+    "removed": "Unclassified Bacilli",
+    "L1 logistic regression": 0.6361111111111112,
+    "Random forest": 0.7225694444444444
+  },
+  "n": {
+    "H": 16,
+    "P": 18
+  },
+  "cv": {
+    "folds": 5,
+    "repeats": 10,
+    "inner_folds_for_C": 3,
+    "null_repeats": 3,
+    "note": "auc_pooled_oof = AUC of per-sample probabilities averaged over repeats (shown in ROC figure, bootstrap CI); auc_mean_over_repeats = mean of per-repeat AUCs (compared with the permutation null)"
+  }
+}

@@ -129,3 +129,48 @@ refer to constants in `src/oralbiome/config.py`.
   environmental taxa.
 - **D30. Volcano labels:** top 8 genera by p plus the three red-complex genera,
   placed by a simple collision-avoiding routine (`style.place_labels`).
+
+## Phase 5 - M6 network, M7 classifier, replication
+
+- **D31. Network input: genera present in >= 30% of samples (217 genera).** With
+  34 samples, Spearman correlations between mostly-zero taxa are driven by
+  shared zeros, so rarer genera are left out of the network (they stay in M5).
+- **D32. Edge rule: |rho| >= 0.6 and BH q < 0.05 over all 23,436 pairs.** Both
+  a strength and a significance cut-off, so edges are neither weak nor
+  chance-level. Samples of both groups are pooled, so two taxa that are both
+  higher in periodontitis will correlate partly *because of* the group
+  difference; the network describes co-variation across all people, not
+  interactions within a person.
+- **D33. Hubs = highest degree** (number of edges), with betweenness
+  centrality reported as a tie-breaker. Degree is the simplest, most
+  explainable centrality measure.
+- **D34. Network figure** shows the largest connected component (167 of 177
+  genera, 1,418 of 1,426 edges) with a Kamada-Kawai layout; hubs are numbered
+  with a key because names do not fit in the dense core.
+- **D35. Classifier input is raw genus counts (all 1,648 genera).** Prevalence
+  filtering and CLR run inside each training fold (`PrevalenceCLR`
+  transformer), and scaling too, so nothing learned from test samples leaks
+  into training.
+- **D36. Nested CV for L1 logistic regression.** C is tuned over 8 values
+  (0.01-31.6) by 3-fold inner CV on each outer training set (about 27
+  samples, so 3 inner folds keep about 9 test samples per inner fold). Class
+  weights are balanced. Solver: liblinear.
+- **D37. Random forest: 300 trees, sqrt features, balanced class weights, no
+  tuning.** Random forests work well at default settings; tuning them on 27
+  samples would mostly fit noise and cost runtime.
+- **D38. Outer CV: 5-fold stratified, repeated 10 times.** Two AUCs are saved:
+  (a) the mean of the 10 per-repeat AUCs, compared with the null; (b) the AUC
+  of per-sample probabilities averaged over the repeats, with a 2,000-resample
+  stratified bootstrap 95% CI and ROC band. They differ slightly (e.g. RF 0.79
+  vs 0.81), and the README says which is which.
+- **D39. Permutation null: 100 label shuffles, 3 CV repeats each** (to fit the
+  2-minute budget). A 3-repeat mean varies more than a 10-repeat mean, which
+  widens the null distribution and makes the test slightly *conservative*.
+  With 100 shuffles the smallest possible p-value is 1/101 = 0.0099.
+- **D40. Ablation (added after seeing the importance plot).** One genus
+  ("Unclassified Bacilli") was selected in every L1 fold, so the classifiers
+  were re-run without it (5 repeats). This is a post-hoc diagnostic of how
+  much the AUC rests on one feature, not a model-selection step.
+- **D41. Replication = T vs TP** through the same code (M1 filtering, alpha,
+  Bray-Curtis PERMANOVA/PERMDISP, red-complex test, M7 with its own null).
+  Effect sizes for both cohorts are compared in a forest plot.

@@ -1,0 +1,14 @@
+{
+  "comparison": "replication",
+  "n_samples": 33,
+  "n_asvs_input": 10005,
+  "n_genera_input": 1263,
+  "n_genera_after_filter": 282,
+  "min_prevalence": 0.1,
+  "min_mean_rel_abund": 0.0001,
+  "pseudocount": 0.5,
+  "rarefy_depth": 59564,
+  "reads_retained_after_filter_median": 0.9935140012971997,
+  "reads_retained_after_filter_min": 0.7567948573361903,
+  "zero_fraction_filtered_genus_table": 0.5905867182462927
+}
