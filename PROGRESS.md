@@ -20,11 +20,13 @@
   - 48 tests pass; 53 document values audited against results/.
   - Decisions D45-D53.
 
+- T9: published to https://github.com/TBark5/oralbiome (public; topics added; remote log verified: every author and committer is the local identity, zero attribution hits).
+
 ## In progress
-- T9: publish to GitHub as a public repository named `oralbiome` (account TBark5, gh authenticated over https).
+- Nothing.
 
 ## Next
-- After pushing: verify the remote log (authors, committers, no attribution strings), add topics, and add the repository URL to MORNING_REPORT.md.
+- Push any future commits with `git push` (remote `origin` is configured).
 - Optional science: re-process SRA PRJNA1304526 with DADA2, re-annotate against eHOMD, identify the "Unclassified Bacilli" features.
 
 ## Known bugs
