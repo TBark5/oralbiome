@@ -71,11 +71,11 @@ def plot_ordinations(ords: dict, results: dict, meta: pd.DataFrame, kind: str) -
             sub = f" (stress = {stress:.3f})"
         _scatter_groups(ax, coords, meta, xcol, ycol)
         name = "Bray-Curtis" if metric == "bray_curtis" else "Jaccard"
-        ax.set_title(f"{name}{sub}")
+        ax.set_title(f"{name}{sub}", pad=26)
         ax.text(0.02, 0.02, _stat_text(results[metric]), transform=ax.transAxes, fontsize=8.5,
                 color=style.INK_SECONDARY, va="bottom",
                 bbox={"facecolor": "white", "edgecolor": style.GRID, "alpha": 0.9})
-        ax.legend(loc="upper right")
+        ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2, fontsize=8.5)
     title = "PCoA" if kind == "pcoa" else "Non-metric MDS"
     fig.suptitle(f"{style.title_prefix()}{title} of genus-level community composition "
                  f"(95% ellipses; open circles = flagged samples)", fontweight="bold")

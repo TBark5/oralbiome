@@ -112,7 +112,8 @@ def plot_core(core: pd.DataFrame, meta: pd.DataFrame, n_show: int = 25) -> None:
     ax.set_xlabel("Prevalence: % of samples where the genus is detected")
     ax.set_title(f"{style.title_prefix()}Core genera (detected in >= "
                  f"{config.CORE_PREVALENCE:.0%} of a group)")
-    ax.legend(loc="lower left")
+    ax.legend(loc="lower center", bbox_to_anchor=(0.5, 1.0), ncol=2)
+    ax.set_title(ax.get_title(), pad=30)
     fig.tight_layout()
     style.save(fig, "03_core_microbiome")
 
