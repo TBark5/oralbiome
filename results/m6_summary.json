@@ -1,0 +1,82 @@
+{
+  "n_genera_input": 217,
+  "min_prevalence_for_network": 0.3,
+  "n_pairs_tested": 23436,
+  "n_nodes": 177,
+  "n_edges": 1426,
+  "n_positive_edges": 1021,
+  "n_negative_edges": 405,
+  "n_components": 5,
+  "top_hubs": {
+    "Campylobacter": {
+      "degree": 66,
+      "positive_edges": 45,
+      "negative_edges": 21
+    },
+    "Fusobacterium": {
+      "degree": 58,
+      "positive_edges": 40,
+      "negative_edges": 18
+    },
+    "Tannerella": {
+      "degree": 58,
+      "positive_edges": 37,
+      "negative_edges": 21
+    },
+    "Prevotella": {
+      "degree": 53,
+      "positive_edges": 40,
+      "negative_edges": 13
+    },
+    "Catonella": {
+      "degree": 51,
+      "positive_edges": 36,
+      "negative_edges": 15
+    },
+    "Porphyromonas": {
+      "degree": 49,
+      "positive_edges": 37,
+      "negative_edges": 12
+    },
+    "Treponema": {
+      "degree": 49,
+      "positive_edges": 31,
+      "negative_edges": 18
+    },
+    "Alistipes": {
+      "degree": 48,
+      "positive_edges": 31,
+      "negative_edges": 17
+    },
+    "Prevotella_7": {
+      "degree": 46,
+      "positive_edges": 35,
+      "negative_edges": 11
+    },
+    "Selenomonas": {
+      "degree": 45,
+      "positive_edges": 37,
+      "negative_edges": 8
+    }
+  },
+  "red_complex_pairs": [
+    {
+      "pair": "Porphyromonas - Tannerella",
+      "rho": 0.68159,
+      "p": 1e-05,
+      "q_bh_across_pairs": 1e-05
+    },
+    {
+      "pair": "Porphyromonas - Treponema",
+      "rho": 0.85332,
+      "p": 0.0,
+      "q_bh_across_pairs": 0.0
+    },
+    {
+      "pair": "Tannerella - Treponema",
+      "rho": 0.80504,
+      "p": 0.0,
+      "q_bh_across_pairs": 0.0
+    }
+  ]
+}

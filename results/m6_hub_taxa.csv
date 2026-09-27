@@ -1,0 +1,178 @@
+taxon,degree,positive_edges,negative_edges,betweenness,m5_direction,m5_p
+Campylobacter,66,45,21,0.036272352120619474,higher in disease,0.1012328997299392
+Fusobacterium,58,40,18,0.03610512065970482,higher in disease,0.1425422559692621
+Tannerella,58,37,21,0.030524252127675452,higher in disease,0.0123672754866078
+Prevotella,53,40,13,0.022986649383839923,higher in disease,0.3087508147269557
+Catonella,51,36,15,0.042778594508201026,higher in disease,0.0700755385933412
+Porphyromonas,49,37,12,0.027212562107447852,higher in disease,0.1012328997299392
+Treponema,49,31,18,0.015163827469414312,higher in disease,0.0031774280123466
+Alistipes,48,31,17,0.07578441865711515,higher in reference,0.2926390096790019
+Prevotella_7,46,35,11,0.017963605212795424,higher in disease,0.0472626981894701
+Selenomonas,45,37,8,0.011654984690652645,higher in disease,0.1246866177053776
+Nitrospira,44,23,21,0.03167407902212708,higher in reference,0.1729204968703134
+Unclassified Subgroup_7,44,23,21,0.0245386003046208,higher in reference,0.1425422559692621
+Enterococcus,43,23,20,0.049472300392487546,higher in disease,0.7958091685190174
+Aggregatibacter,43,33,10,0.010801715082474708,higher in disease,0.3605398647165013
+Filifactor,42,29,13,0.05119600255310309,higher in disease,0.0067586621096373
+Johnsonella,42,35,7,0.011757512950481422,higher in disease,0.2078968479961097
+Leptotrichia,42,33,9,0.0109108174852788,higher in disease,0.0700755385933412
+Actinomyces,42,34,8,0.009114076253008464,higher in disease,0.3254384459535446
+Unclassified Microscillaceae,41,19,22,0.033994986786164014,higher in reference,0.1425422559692621
+Fretibacterium,41,28,13,0.011722330806821215,higher in disease,0.0017929368517042
+Christensenellaceae_R_7_group,40,27,13,0.030554784739969955,higher in reference,0.2771016672693848
+Lachnoanaerobaculum,40,31,9,0.00940377213845041,higher in disease,0.1246866177053776
+Granulicatella,39,30,9,0.006774559854273886,higher in disease,0.378949466097278
+Unclassified Clostridiales_bacterium_oral_taxon_075,39,28,11,0.005976240044218224,higher in disease,0.1622985013257089
+Veillonella,38,28,10,0.03423026829882264,higher in reference,0.9312611701868386
+Bacillus,38,14,24,0.020608028024147726,higher in disease,0.8766126033208463
+RB41,37,17,20,0.02410591391837529,higher in reference,0.2621361301224811
+Unclassified Candidatus_Saccharibacteria_bacterium_UB2523,35,29,6,0.006953100938520214,higher in disease,0.1012328997299392
+Anaeroglobus,34,30,4,0.00539097374747067,higher in disease,0.0310481638869636
+F0058,34,24,10,0.004481636425824903,higher in disease,0.0284548210012727
+Eikenella,33,24,9,0.004569338635663034,higher in disease,0.3087508147269557
+Unclassified Clostridia,32,23,9,0.016939018191519523,higher in reference,0.2621361301224811
+Lachnospiraceae_NK4A136_group,31,21,10,0.032925086562759845,higher in reference,0.2771016672693848
+Dubosiella,30,23,7,0.017848923994109197,higher in reference,0.3979264424618126
+Unclassified Bacteria,30,3,27,0.0027703505587789025,higher in reference,0.5927876039372726
+Parvimonas,29,21,8,0.0032962929237555175,higher in disease,0.1246866177053776
+Unclassified JG30_KF_CM45,28,14,14,0.029442314568043155,higher in reference,0.1012328997299392
+Unclassified Muribaculaceae,28,16,12,0.016142076006022438,higher in reference,0.6662568120253349
+Akkermansia,28,13,15,0.009860103622259283,higher in reference,0.378949466097278
+Streptococcus,28,22,6,0.0027930797022368576,higher in reference,0.7430771478039212
+Capnocytophaga,28,27,1,0.0016038700447505271,higher in disease,0.5691497940860235
+Luteimonas,27,21,6,0.012183808665018262,higher in reference,0.378949466097278
+[Eubacterium]_nodatum_group,26,20,6,0.02344228415594835,higher in disease,0.0123672754866078
+[Eubacterium]_brachy_group,26,12,14,0.004427978648163098,higher in disease,0.0755815981990355
+Rothia,26,20,6,0.004037370185423651,higher in reference,0.5691497940860235
+Unclassified Saccharimonadaceae,26,22,4,0.001424717009539785,higher in disease,0.2621361301224811
+Kingella,25,21,4,0.002761222913193701,higher in reference,0.9587239784368092
+Haemophilus,24,19,5,0.0020737298001955277,higher in reference,0.5459717226765591
+Luteolibacter,23,20,3,0.026803597315950466,higher in disease,0.378949466097278
+Lentimicrobium,22,15,7,0.0027297907327799202,higher in disease,0.0060878720555986
+Peptococcus,21,11,10,0.01706156244921201,higher in disease,0.0020147905920289
+Lachnoclostridium,21,19,2,0.011696395818462855,higher in disease,0.5927876039372726
+Oribacterium,21,18,3,0.010823669911152108,higher in disease,0.6413627794434322
+Dialister,21,18,3,0.005970156021213312,higher in disease,0.0512434736904938
+Phocaeicola,21,21,0,0.0004106999027836754,higher in disease,0.0054776501119253
+Corynebacterium,21,21,0,0.0004080445135768224,higher in disease,0.1957093184246542
+Unclassified Vicinamibacteraceae,20,8,12,0.0036080991879866527,higher in reference,0.6662568120253349
+[Eubacterium]_yurii_group,20,13,7,0.0033332032722067223,higher in disease,0.1521764393097222
+Escherichia_Shigella,20,10,10,0.0027864989404327864,higher in disease,0.7958091685190174
+Lautropia,20,17,3,0.0008770200130737738,higher in reference,0.7430771478039212
+Cardiobacterium,20,17,3,0.0005989579144020533,higher in reference,0.9312611701868386
+Unclassified Chloroflexi,19,12,7,0.02527102769328654,higher in reference,0.2078968479961097
+Parabacteroides,19,14,5,0.017269555102518878,higher in disease,0.8225462014338153
+Neisseria,19,14,5,0.0050140435611682275,higher in reference,0.5927876039372726
+Defluviitaleaceae_UCG_011,19,17,2,0.0007047053507860144,higher in disease,0.0091874933936809
+Alloprevotella,19,16,3,0.00044964934029912703,higher in disease,0.2771016672693848
+Flavobacterium,18,14,4,0.019044610064682266,higher in reference,0.1012328997299392
+Bradyrhizobium,18,10,8,0.004758787210638597,higher in reference,0.018104470559556
+Unclassified Oscillospiraceae,17,16,1,0.0549194424185041,higher in reference,0.1622985013257089
+Limosilactobacillus,17,10,7,0.0038219550452360833,higher in disease,0.4581961126576446
+Ligilactobacillus,17,10,7,0.002065440948958775,higher in disease,0.9312611701868386
+Peptostreptococcus,17,16,1,0.0005850736038015238,higher in disease,0.6168655926757294
+Unclassified 67_14,16,8,8,0.01716814133176701,higher in reference,0.2926390096790019
+Gemella,16,11,5,0.0021787104242345307,higher in reference,0.4793693801516517
+[Eubacterium]_saphenum_group,15,13,2,0.0005208288821465139,higher in disease,0.1086253767323723
+Pseudopropionibacterium,15,13,2,0.00015348818291143837,higher in disease,0.6915240242452287
+28_4,14,14,0,0.00858148793649165,higher in disease,0.378949466097278
+Brevundimonas,14,7,7,0.0029916644920882584,higher in reference,0.3254384459535446
+Unclassified Gammaproteobacteria,13,13,0,0.025969180259699673,higher in reference,0.0338418030751173
+Unclassified Rokubacteriales,13,11,2,0.021448634733360315,higher in reference,0.4375578509038419
+Nocardioides,13,4,9,0.006949160477103469,higher in reference,0.055501185502071
+Haliangium,13,5,8,0.0006876763942789749,higher in reference,0.0091874933936809
+Unclassified Clostridiales_bacterium_feline_oral_taxon_148,12,8,4,0.0008568762024921568,higher in disease,0.1333833446551451
+Mycoplasma,12,8,4,0.00029882675431695983,higher in disease,0.2771016672693848
+TM7x,12,11,1,5.287457583791423e-05,higher in disease,0.1333833446551451
+Unclassified Cyanobacteriales,11,10,1,0.008614632314704197,higher in reference,0.1164385759692899
+Bacteroides,11,3,8,0.007976064566566193,higher in disease,0.3087508147269557
+Bergeyella,11,10,1,0.00039412365759856877,higher in reference,0.769309773075766
+Candidatus_Saccharimonas,11,9,2,0.0002986668461647563,higher in reference,0.769309773075766
+TM7a,11,10,1,0.00011650981241996376,higher in disease,0.4375578509038419
+Methyloversatilis,10,7,3,0.010110610392880094,higher in disease,0.7958091685190174
+Unclassified Sandaracinaceae,10,7,3,0.009473982432836212,higher in reference,0.1957093184246542
+Staphylococcus,10,8,2,0.0019027850427877624,higher in disease,0.9312611701868386
+Unclassified Longimicrobiaceae,10,10,0,0.0012527207833121726,higher in disease,1.0
+Bifidobacterium,10,10,0,0.00014030330106403738,higher in reference,0.6662568120253349
+F0332,10,10,0,6.936601607370159e-05,higher in disease,0.1521764393097222
+Kouleothrix,9,9,0,0.023940424046623193,higher in reference,0.0512434736904938
+Unclassified Roseiflexaceae,9,9,0,0.012243019617604189,higher in reference,0.1840538573251052
+Faecalibacterium,9,5,4,0.0003799136655605801,higher in reference,0.0031774280123466
+Unclassified Anaerolineaceae,9,3,6,2.6980869882363918e-05,higher in reference,0.4174650082937052
+Devosia,8,8,0,0.024878642754458714,higher in reference,0.2339037136725663
+MND1,8,7,1,0.008284703524696065,higher in disease,0.8494909099222699
+Microvirga,7,7,0,0.009914365858455069,higher in reference,0.4581961126576446
+Unclassified Vicinamibacterales,7,4,3,0.0006390122426281187,higher in disease,0.3427019210854506
+Helicobacter,6,6,0,0.012255772424391773,higher in disease,1.0
+Streptomyces,6,6,0,0.00743466526401499,higher in reference,0.1729204968703134
+Muribaculum,6,6,0,0.00490722725188671,higher in reference,0.0338418030751173
+Lactobacillus,6,4,2,0.0005003045743993821,higher in reference,0.9312611701868386
+Blautia,6,6,0,0.0002910519711247775,higher in disease,0.2771016672693848
+Unclassified Microtrichales,6,3,3,1.926644783787641e-05,higher in reference,0.011212963803094
+Unclassified Actinobacteriota,5,2,3,0.019667967500047127,higher in reference,0.378949466097278
+Stenotrophomonas,5,4,1,0.016146293801835045,higher in reference,0.1840538573251052
+Pseudarthrobacter,5,4,1,0.002357222360064976,higher in reference,0.055501185502071
+Lysobacter,5,5,0,0.000504010771150788,higher in disease,0.8494909099222699
+Unclassified Gemmatimonadaceae,5,3,2,0.0002677703414898426,higher in disease,0.5691497940860235
+Unclassified Clostridia_vadinBB60_group,4,4,0,0.021363636363636362,higher in disease,0.8225462014338153
+Unclassified Absconditabacteriales__SR1,4,1,3,0.010714285714285714,higher in disease,0.9862358663545844
+Unclassified A4b,4,4,0,0.010185614256514361,higher in reference,0.1957093184246542
+Unclassified Isosphaeraceae,4,3,1,0.008185656080909121,higher in reference,0.0020147905920289
+Ruminococcus,4,4,0,0.007245205013128431,higher in reference,0.055501185502071
+Prevotella_9,4,4,0,0.0039483003729740285,higher in reference,0.0091874933936809
+Unclassified Subgroup_17,4,4,0,0.002195281449867233,higher in reference,0.2621361301224811
+Unclassified Woesearchaeales,4,4,0,0.0011557381105560271,higher in reference,0.7430771478039212
+Atopobium,4,3,1,0.0009829175613144735,higher in reference,0.3427019210854506
+Unclassified candidate_division_SR1_bacterium_MGEHA,4,2,2,1.8984424568241414e-05,higher in disease,0.9862358663545844
+Stomatobaculum,4,4,0,1.3096147549929063e-05,higher in disease,0.8766126033208463
+Unclassified Bacteroidales,4,4,0,0.0,higher in reference,0.1840538573251052
+Unclassified Bacilli,3,0,3,0.010976377126661217,higher in disease,9.264187025252e-06
+Unclassified Chitinophagaceae,3,3,0,0.010714285714285714,higher in reference,0.0755815981990355
+Massilia,3,2,1,0.002908225328505561,higher in reference,0.2771016672693848
+Sphingobium,3,3,0,0.001983497568042834,higher in disease,0.5459717226765591
+Unclassified Pedosphaeraceae,3,3,0,0.0009774929901427123,higher in reference,0.0942468109671007
+Unclassified IMCC26256,3,3,0,0.0003217449330088543,higher in disease,0.5232714856259304
+Megasphaera,3,1,2,0.00011580332546241635,higher in reference,0.4793693801516517
+Burkholderia_Caballeronia_Paraburkholderia,3,2,1,5.1697161849434364e-05,higher in reference,0.0814357591049887
+Unclassified Anaerovoracaceae,2,1,1,0.031753246753246755,higher in disease,0.0435452738040428
+Limnobacter,2,1,1,0.021298701298701296,higher in reference,0.064903042207052
+Candidatus_Solibacter,2,1,1,0.013638553854765032,higher in reference,0.0284548210012727
+Unclassified Acidimicrobiia,2,2,0,0.010714285714285713,higher in reference,0.0472626981894701
+P3OB_42,2,2,0,0.0036559493880259706,higher in reference,0.4793693801516517
+Unclassified Ruminococcaceae,2,2,0,0.003136434028758228,higher in reference,0.1840538573251052
+Acinetobacter,2,1,1,0.0010293333299281216,higher in reference,0.0876526240926455
+Paenibacillus,2,1,1,0.000977277230658279,higher in disease,0.5232714856259304
+Enterobacter,2,2,0,0.0006867743998425815,higher in reference,0.0009839960087355
+Odoribacter,2,2,0,0.00020392702535559676,higher in disease,0.9312611701868386
+Collinsella,2,2,0,0.0002001635816290988,higher in disease,0.7430771478039212
+Bdellovibrio,2,2,0,0.00014593745162539844,higher in disease,0.8494909099222699
+Gaiella,2,2,0,0.0,higher in reference,0.1425422559692621
+Candidatus_Udaeobacter,2,2,0,0.0,higher in reference,0.0942468109671007
+Methylobacterium_Methylorubrum,2,2,0,0.0,higher in reference,0.0091874933936809
+Rhodococcus,2,2,0,0.0,higher in reference,0.1246866177053776
+Ellin6067,2,2,0,0.0,higher in disease,0.5010656805974567
+Unclassified Actinobacteria,2,2,0,0.0,higher in reference,0.2771016672693848
+Unclassified SAR202_clade,2,2,0,0.0,higher in disease,0.769309773075766
+Unclassified F082,2,2,0,0.0,higher in disease,0.3979264424618126
+Unclassified Steroidobacteraceae,2,2,0,0.0,higher in reference,0.3979264424618126
+Solobacterium,2,2,0,0.0,higher in reference,0.2078968479961097
+Achromobacter,1,1,0,0.0,higher in reference,0.0942468109671007
+Acidibacter,1,0,1,0.0,higher in reference,0.0060878720555986
+Actinobacillus,1,1,0,0.0,higher in disease,0.2926390096790019
+Aeromicrobium,1,1,0,0.0,higher in reference,0.1086253767323723
+Candidatus_Koribacter,1,1,0,0.0,higher in reference,0.4174650082937052
+Unclassified Gaiellales,1,1,0,0.0,higher in reference,0.1333833446551451
+Comamonas,1,0,1,0.0,higher in disease,0.3087508147269557
+Gemmatimonas,1,1,0,0.0,higher in reference,0.2206255740495367
+Unclassified Lachnospiraceae,1,1,0,0.0,higher in disease,0.6915240242452287
+Hyphomicrobium,1,1,0,0.0,higher in reference,0.1622985013257089
+Snodgrassella,1,1,0,0.0,higher in reference,0.2621361301224811
+Unclassified Gemmataceae,1,1,0,0.0,higher in reference,0.8766126033208463
+Mesorhizobium,1,1,0,0.0,higher in reference,0.0338418030751173
+Unclassified [Eubacterium]_coprostanoligenes_group,1,1,0,0.0,higher in reference,0.3427019210854506
+Phenylobacterium,1,1,0,0.0,higher in disease,0.7430771478039212
+Pseudolabrys,1,1,0,0.0,higher in reference,0.1840538573251052
+Rikenellaceae_RC9_gut_group,1,1,0,0.0,higher in disease,0.004419989264755
+Roseburia,1,1,0,0.0,higher in disease,0.2339037136725663
+Unclassified Alphaproteobacteria,1,1,0,0.0,higher in reference,0.4174650082937052
+Unclassified Subgroup_2,1,1,0,0.0,higher in reference,0.8494909099222699

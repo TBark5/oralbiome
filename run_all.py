@@ -12,9 +12,11 @@ import sys
 import time
 from pathlib import Path
 
+import pandas as pd
+
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-from oralbiome import alpha, beta_run, composition, differential_run, config, data, preprocessing, qc, style  # noqa: E402
+from oralbiome import alpha, beta_run, composition, differential_run, network, config, data, preprocessing, qc, style  # noqa: E402
 
 
 def step(name: str):
@@ -67,6 +69,11 @@ def main() -> None:
 
     done = step("M5 differential abundance")
     summary["m5"] = differential_run.run(pre)
+    done()
+
+    done = step("M6 co-occurrence network")
+    da_table = pd.read_csv(config.RESULTS / "m5_differential_abundance_genus.csv", index_col=0)
+    summary["m6"] = network.run(pre, da_table)
     done()
 
     (config.RESULTS / "summary.json").write_text(json.dumps(summary, indent=2, default=str))

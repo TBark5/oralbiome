@@ -128,25 +128,31 @@ def box_with_points(ax: plt.Axes, values: dict[str, "np.ndarray"],
     ax.grid(axis="x", visible=False)
 
 
-def place_labels(ax: plt.Axes, points: list[tuple[float, float, str, bool]]) -> None:
+def place_labels(ax: plt.Axes, points: list[tuple[float, float, str, bool]],
+                 boxed: bool = False, spread: float = 1.0) -> None:
     """Annotate points while avoiding overlapping text boxes.
 
     ``points`` holds (x, y, text, bold). For each label, candidate offsets are
     tried in order and the first whose bounding box does not overlap an
-    already placed label (or the point markers of other labels) is kept.
+    already placed label is kept. ``boxed`` draws a white background behind
+    each label (for busy plots) and ``spread`` scales the offsets.
     """
     fig = ax.figure
     renderer = fig.canvas.get_renderer()
     placed = []
     candidates = [(6, 6), (6, -8), (-6, 6), (-6, -8), (6, 16), (-6, 16), (6, -18), (-6, -18),
-                  (6, 26), (-6, 26), (6, -28), (-6, -28)]
+                  (6, 26), (-6, 26), (6, -28), (-6, -28), (20, 40), (-20, 40), (20, -40),
+                  (-20, -40)]
+    candidates = [(dx * spread, dy * spread) for dx, dy in candidates]
+    bbox = {"facecolor": "white", "edgecolor": GRID, "alpha": 0.92, "pad": 1.5,
+            "boxstyle": "round,pad=0.25"} if boxed else None
     for x, y, _, _ in points:
         ax.scatter([x], [y], s=34, facecolor="none", edgecolor=INK, linewidth=0.9, zorder=4)
     for x, y, text, bold in points:
         for dx, dy in candidates:
             ann = ax.annotate(text, (x, y), xytext=(dx, dy), textcoords="offset points",
                               fontsize=8, ha="left" if dx > 0 else "right", va="center",
-                              fontweight="bold" if bold else "normal", color=INK,
+                              fontweight="bold" if bold else "normal", color=INK, bbox=bbox,
                               arrowprops={"arrowstyle": "-", "color": INK_SECONDARY, "lw": 0.6,
                                           "shrinkA": 0, "shrinkB": 3})
             box = ann.get_window_extent(renderer).expanded(1.05, 1.15)
