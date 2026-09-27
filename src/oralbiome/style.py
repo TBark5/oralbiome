@@ -21,8 +21,8 @@ from . import config  # noqa: E402
 GROUP_COLORS: dict[str, str] = {
     "Healthy": "#0072B2",
     "Periodontitis": "#D55E00",
-    "Hypertension": "#0072B2",
-    "Hypertension + periodontitis": "#D55E00",
+    "Hypertension": "#56B4E9",
+    "Hypertension + periodontitis": "#E69F00",
 }
 TAXON_COLORS: list[str] = [
     "#2a78d6", "#eb6834", "#1baf7a", "#eda100",

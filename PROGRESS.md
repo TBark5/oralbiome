@@ -8,12 +8,13 @@
 - Phase 4: M5 differential abundance (genus scan + BH, permutation null, pre-declared red-complex species test, high-richness diagnostic).
 - Phase 5: M6 co-occurrence network, M7 classifiers (nested CV, permutation null, ablation), replication cohort T vs TP.
 - Phase 6: visuals pass (16 figures at 300 dpi, colorblind-safe palette, n on every group figure), figures/CAPTIONS.md.
+- Phase 7: Streamlit dashboard `app.py` (9 tabs, sidebar filters: groups, flagged samples, taxonomic level, top-N); verified with AppTest and a live launch; screenshots in docs/screenshots/
 
 ## In progress
-- Phase 7: Streamlit dashboard (app.py).
+- Phase 8: pytest suite, synthetic recovery test, fresh-venv check.
 
 ## Next
-- Phase 8 tests, Phase 9 docs.
+- Phase 9 docs.
 
 ## Known bugs
 - None.

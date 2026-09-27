@@ -57,7 +57,9 @@ def plot_qc(ds: Dataset, curves: pd.DataFrame) -> None:
         axes[0].scatter(i + rng.uniform(-0.12, 0.12, len(depths)), depths, s=22,
                         color=color, alpha=0.8, edgecolor="white", linewidth=0.5, zorder=3)
     axes[0].set_xticks(range(len(order)))
-    axes[0].set_xticklabels([f"{g}\n(n={int((meta['group'] == g).sum())})" for g in order], fontsize=8)
+    short = {"Hypertension + periodontitis": "Hypertension +\nperiodontitis"}
+    axes[0].set_xticklabels([f"{short.get(g, g)}\n(n={int((meta['group'] == g).sum())})"
+                             for g in order], fontsize=8)
     axes[0].set_ylabel("Reads per sample (thousands)")
     axes[0].set_title("Sequencing depth by group")
 
@@ -65,6 +67,10 @@ def plot_qc(ds: Dataset, curves: pd.DataFrame) -> None:
         label = meta.loc[sample, "group"]
         axes[1].plot(sub["depth"] / 1000, sub["expected_richness"], lw=0.9, alpha=0.6,
                      color=style.GROUP_COLORS.get(label, style.NEUTRAL_COLOR))
+    for label in order:
+        axes[1].plot([], [], color=style.GROUP_COLORS.get(label, style.NEUTRAL_COLOR), lw=2,
+                     label=f"{label} (n={int((meta['group'] == label).sum())})")
+    axes[1].legend(loc="center right", fontsize=8)
     axes[1].axvline(meta["read_depth"].min() / 1000, color=style.INK_SECONDARY, ls="--", lw=1)
     axes[1].text(meta["read_depth"].min() / 1000, axes[1].get_ylim()[1] * 0.02,
                  " rarefaction depth", fontsize=8, color=style.INK_SECONDARY)
