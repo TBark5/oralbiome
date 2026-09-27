@@ -103,8 +103,8 @@ class Preprocessed:
     summary: dict = field(default_factory=dict)
 
 
-def preprocess(ds: Dataset, tag: str = "primary") -> Preprocessed:
-    """Run M1 on one comparison and write the processed tables + summary."""
+def preprocess(ds: Dataset, tag: str = "primary", write: bool = True) -> Preprocessed:
+    """Run M1 on one comparison; optionally write the processed tables + summary."""
     counts, tax = ds.counts, ds.taxonomy
     genus = aggregate(counts, tax, "genus")
     keep = prevalence_filter(genus)
@@ -138,6 +138,8 @@ def preprocess(ds: Dataset, tag: str = "primary") -> Preprocessed:
         "reads_retained_after_filter_min": float(retained.min()),
         "zero_fraction_filtered_genus_table": float((genus_f.to_numpy() == 0).mean()),
     }
+    if not write:
+        return pre
     out = config.RESULTS / f"m1_preprocessing_summary_{tag}.json"
     out.write_text(json.dumps(pre.summary, indent=2))
     if tag == "primary":

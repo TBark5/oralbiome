@@ -16,7 +16,7 @@ import pandas as pd
 
 sys.path.insert(0, str(Path(__file__).resolve().parent / "src"))
 
-from oralbiome import alpha, beta_run, classifier_run, composition, differential_run, network, config, data, preprocessing, qc, replication, style  # noqa: E402
+from oralbiome import alpha, beta_run, classifier_run, composition, differential_run, network, config, data, preprocessing, qc, replication, style, validation  # noqa: E402
 
 
 def step(name: str):
@@ -82,6 +82,10 @@ def main() -> None:
 
     done = step("Replication cohort (T vs TP)")
     summary["replication"] = replication.run(full, pre, summary["m4"], summary["m7"])
+    done()
+
+    done = step("Positive control on synthetic data with planted differences")
+    summary["synthetic_validation"] = validation.recovery_metrics()
     done()
 
     (config.RESULTS / "summary.json").write_text(json.dumps(summary, indent=2, default=str))

@@ -146,8 +146,9 @@ def load_dataset(force_synthetic: bool = False) -> Dataset:
 def save_processed(ds: Dataset) -> None:
     """Write the parsed tables to ``data/processed`` (gzipped CSV)."""
     tag = f"{config.SYNTHETIC_TAG}_" if ds.is_synthetic else ""
-    ds.counts.to_csv(config.DATA_PROCESSED / f"{tag}asv_counts.csv.gz")
-    ds.taxonomy.to_csv(config.DATA_PROCESSED / f"{tag}asv_taxonomy.csv.gz")
+    gz = {"method": "gzip", "mtime": 0}  # fixed header timestamp -> byte-identical reruns
+    ds.counts.to_csv(config.DATA_PROCESSED / f"{tag}asv_counts.csv.gz", compression=gz)
+    ds.taxonomy.to_csv(config.DATA_PROCESSED / f"{tag}asv_taxonomy.csv.gz", compression=gz)
     ds.metadata.to_csv(config.DATA_PROCESSED / f"{tag}sample_metadata.csv")
 
 
